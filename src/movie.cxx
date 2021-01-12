@@ -145,7 +145,7 @@ CMovie::fileOpenMovie (const std::string & pFilename)
       g_renderer, info.video.output.format, SDL_TEXTUREACCESS_TARGET,
       info.video.output.width, info.video.output.height);
     if (g_bFullScreen && g_zoom == 1)
-      SDL_SetHint (SDL_HINT_RENDER_SCALE_QUALITY, "nearset");
+      SDL_SetHint (SDL_HINT_RENDER_SCALE_QUALITY, "nearest");
 
     if (m_videoTex == nullptr)
       return false;
