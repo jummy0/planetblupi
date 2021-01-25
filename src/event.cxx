@@ -52,6 +52,7 @@
 #define DEF_TIME_HELP 10000 // ~10 minutes
 #define DEF_TIME_DEMO 1000  // ~1 minute
 #define MAXDEMO 2000
+#define MAXCHEAT 10
 
 typedef struct {
   // v1.0
@@ -84,7 +85,7 @@ typedef struct {
 // Toutes les premières lettres doivent
 // être différentes !
 
-static char cheat_code[9][20] = {
+static char cheat_code[MAXCHEAT][20] = {
   "vision",      // 0
   "power",       // 1
   "lonesome",    // 2
@@ -94,6 +95,7 @@ static char cheat_code[9][20] = {
   "invincible",  // 6
   "superblupi",  // 7
   "construire",  // 8 (CPOTUSVJSF)
+  "grandmaitre", // 9
 };
 
 /////////////////////////////////////////////////////////////////////////////
@@ -2139,6 +2141,10 @@ CEvent::DrawButtons ()
       AddCheatCode (text, cheat_code[6]);
     if (m_pDecor->GetSuper ())
       AddCheatCode (text, cheat_code[7]);
+    if (m_bAccessBuild)
+      AddCheatCode (text, cheat_code[8]);
+    if (m_pDecor->GetControlOverride ())
+      AddCheatCode (text, cheat_code[9]);
 
     if (text[0])
     {
@@ -2185,7 +2191,7 @@ CEvent::DrawButtons ()
       bEnable = false;
     SetEnable (EV_BUTTON1, bEnable);
     bEnable = true;
-    if (m_speed >= (m_bSpeed ? 8 : 2))
+    if (m_speed >= (m_bSpeed ? 64 : 2))
       bEnable = false;
     SetEnable (EV_BUTTON2, bEnable);
 
@@ -4375,7 +4381,7 @@ CEvent::ChangeButtons (Sint32 message)
     if (message == EV_BUTTON2)
     {
       if (m_bSpeed)
-        max = 8;
+        max = 64;
       else
         max = 2;
       if (m_speed < max)
@@ -5189,7 +5195,7 @@ CEvent::SetSpeed (Sint32 speed)
   Sint32 max;
 
   if (m_bSpeed)
-    max = 8;
+    max = 64;
   else
     max = 2;
 
@@ -5702,7 +5708,7 @@ CEvent::TreatEventBase (const SDL_Event & event)
       if (m_posCheat == 0) // première lettre ?
       {
         m_rankCheat = -1;
-        for (i = 0; i < 9; i++)
+        for (i = 0; i < MAXCHEAT; i++)
         {
           if ((char) event.key.keysym.sym == cheat_code[i][0])
           {
@@ -5769,6 +5775,11 @@ CEvent::TreatEventBase (const SDL_Event & event)
               m_bAccessBuild = !m_bAccessBuild;
               bEnable        = m_bAccessBuild;
               break;
+            }
+            case 9: // grandmaitre ?
+            {
+              m_pDecor->SetControlOverride (!m_pDecor->GetControlOverride ());
+              bEnable = m_pDecor->GetControlOverride ();
             }
             }
 

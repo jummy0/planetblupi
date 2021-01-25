@@ -363,6 +363,20 @@ CDecor::SetSuper (bool bSuper)
   m_bSuper = bSuper;
 }
 
+// manage Control Override mode (grandmaitre).
+
+bool
+CDecor::GetControlOverride ()
+{
+  return m_bControlOverride;
+}
+
+void
+CDecor::SetControlOverride (bool bControlOverride)
+{
+  m_bControlOverride = bControlOverride;
+}
+
 // Bascule le mode outline.
 
 void

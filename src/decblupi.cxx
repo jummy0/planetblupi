@@ -3324,7 +3324,8 @@ CDecor::GetTargetBlupi (Point pos)
   {
     if (
       m_blupi[rank].bExist && (m_blupi[rank].perso == 0 || // blupi ?
-                               m_blupi[rank].perso == 8))  // disciple ?
+                               m_blupi[rank].perso == 8 || // disciple ?
+							   m_bControlOverride)) // cheat "grandmaitre" ?
     {
       test = ConvCelToPos (m_blupi[rank].cel);
       test.x += m_blupi[rank].pos.x;
