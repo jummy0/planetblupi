@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-08 07:29+0200\n"
-"PO-Revision-Date: 2017-12-14 23:15+0100\n"
+"POT-Creation-Date: 2021-01-24 19:06-0600\n"
+"PO-Revision-Date: 2021-01-24 20:16-0600\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.5\n"
+"X-Generator: Poedit 2.1.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid " - FFmpeg (LGPLv2.1)"
@@ -40,7 +40,7 @@ msgid " - libcurl (MIT/X derivate)"
 msgstr " - libcurl (MIT/X Derivatlizenz)"
 
 msgid " - libogg and libvorbis (own license)"
-msgstr " - libogg and libvorbis (Eigene Lizenz)"
+msgstr " - libogg und libvorbis (Eigene Lizenz)"
 
 msgid " - libpng (own license)"
 msgstr " - libpng (Eigene Lizenz)"
@@ -208,8 +208,9 @@ msgstr ""
 "1|Der Roboter muss die\n"
 "1|gestreiften Quadrate erreichen."
 
+#, fuzzy
 msgid "Aliasing"
-msgstr ""
+msgstr "Kein Anti-Aliasing"
 
 msgid "All licenses are available under share/doc/planetblupi/copyright"
 msgstr "Alle Lizenzen sind unter share/doc/planetblupi/copyright"
@@ -221,7 +222,7 @@ msgid "Another mistake..."
 msgstr "Das war leider nicht die richtige Lösung !"
 
 msgid "Anti-aliasing"
-msgstr ""
+msgstr "Anti-Aliasing"
 
 msgid "Armour"
 msgstr "Rüstung"
@@ -288,33 +289,33 @@ msgstr "Stein bearbeiten"
 msgid "Carve rocks"
 msgstr "Steine bearbeiten"
 
-#, fuzzy
 msgid ""
 "Change the\n"
 "display mode"
 msgstr ""
-"Fentergrösse\n"
+"Bildschirmmodus\n"
 "anpassen"
 
-#, fuzzy
 msgid ""
 "Change the\n"
 "render quality"
 msgstr ""
-"Fentergrösse\n"
+"Renderqualität\n"
 "anpassen"
 
 msgid ""
 "Change the\n"
 "window size"
 msgstr ""
-"Fentergrösse\n"
+"Fenstergrösse\n"
 "anpassen"
 
 msgid ""
 "Choose the\n"
 "music format"
 msgstr ""
+"Musikformat\n"
+"auswählen"
 
 msgid "Construct this game"
 msgstr "Diese Mission konstruieren"
@@ -353,16 +354,16 @@ msgid "Desert"
 msgstr "Wüste"
 
 msgid "Desktop"
-msgstr ""
+msgstr "Desktop"
 
 msgid "Desktop mode"
-msgstr ""
+msgstr "Desktop-Modus"
 
 msgid "Difficult"
 msgstr "Schwer"
 
 msgid "Disable anti-aliasing"
-msgstr ""
+msgstr "Anti-Aliasing aktivieren"
 
 msgid "Drink"
 msgstr "Trinken"
@@ -389,7 +390,7 @@ msgid "Electrocutor"
 msgstr "Elektrisiermaschine"
 
 msgid "Enable anti-aliasing"
-msgstr ""
+msgstr "Anti-Aliasing deaktivieren"
 
 msgid "Ending conditions"
 msgstr ""
@@ -537,11 +538,12 @@ msgstr "Letzte konstruierte Mission beendet."
 msgid "Leave Jeep"
 msgstr "Aussteigen"
 
+#, fuzzy
 msgid "Legacy"
-msgstr ""
+msgstr "Veraltet"
 
 msgid "Legacy mode (640x480)"
-msgstr ""
+msgstr "Altmodus (640x480)"
 
 #, c-format
 msgid "Lost if less than %d Blupi"
@@ -670,7 +672,7 @@ msgid "Normal ground"
 msgstr "Normaler Untergrund"
 
 msgid "Not available"
-msgstr ""
+msgstr "Nicht verfügbar"
 
 msgid "Not enough energy"
 msgstr "Ungenügend Energie"
@@ -862,6 +864,8 @@ msgstr ""
 
 msgid "This game uses statically linked free and open-source libraries:"
 msgstr ""
+"Dieses Spiel benutzt statisch verlinkte freie und quelloffene "
+"Programmbibliotheken:"
 
 msgid "Time bomb"
 msgstr "Zeitbombe"
@@ -900,10 +904,10 @@ msgid "Tree trunks"
 msgstr "Baumstämme"
 
 msgid "Use Midi music (original)"
-msgstr ""
+msgstr "Midi-Musik benutzen (ursprünglich)"
 
 msgid "Use Ogg music"
-msgstr ""
+msgstr "Ogg-Musik benutzen"
 
 msgid "Version"
 msgstr "Version"
@@ -967,8 +971,8 @@ msgid "You have played Planet Blupi."
 msgstr "Sie haben soeben mit Planet Blupi gespielt."
 
 #, c-format
-msgid "construction %d, time %d"
-msgstr "Konstruktion %d, Zeit %d"
+msgid "construction %d"
+msgstr "Konstruktion %d"
 
 msgid "en"
 msgstr "de"
@@ -980,12 +984,16 @@ msgid "http://www.blupi.org            info@blupi.org"
 msgstr "http://www.blupi.org            info@blupi.org"
 
 #, c-format
-msgid "mission %d, time %d"
-msgstr "Mission %d, Zeit %d"
+msgid "mission %d"
+msgstr "Mission %d"
 
 #, c-format
-msgid "training %d, time %d"
-msgstr "Training %d, Zeit %d"
+msgid "time %d:%05.2f"
+msgstr "Zeit %d:%05.2f"
+
+#, c-format
+msgid "training %d"
+msgstr "Training %d"
 
 #, fuzzy
 #~ msgid "Nearest"
@@ -993,3 +1001,17 @@ msgstr "Training %d, Zeit %d"
 
 #~ msgid "Quit BLUPI"
 #~ msgstr "BLUPI beenden"
+
+#~ msgid ""
+#~ "construction %d\n"
+#~ "time %d:%05.2f"
+#~ msgstr ""
+#~ "Konstruktion %d\n"
+#~ "Zeit %d:%05.2f"
+
+#~ msgid ""
+#~ "training %d\n"
+#~ "time %d:%05.2f"
+#~ msgstr ""
+#~ "Training %d\n"
+#~ "Zeit %d:%05.2f"

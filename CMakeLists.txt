@@ -311,9 +311,20 @@ if (NOT BUILD_JS)
     PATTERN "world*.dev.blp"
   )
   install (DIRECTORY resources/image DESTINATION share/planetblupi)
-  install (DIRECTORY resources/movie DESTINATION share/planetblupi)
+  if (MOVIE)
+    install (DIRECTORY resources/movie DESTINATION share/planetblupi)
+  endif ()
   install (DIRECTORY resources/sound DESTINATION share/planetblupi)
-  install (DIRECTORY resources/music DESTINATION share/planetblupi)
+  install (
+    DIRECTORY resources/music DESTINATION share/planetblupi
+	PATTERN "*.ogg" EXCLUDE
+  )
+  if (OGG)
+    install (
+      DIRECTORY resources/music DESTINATION share/planetblupi
+      PATTERN "*.ogg"
+    )
+  endif ()
   install (FILES LICENSE.all DESTINATION share/doc/planetblupi RENAME copyright)
   install (FILES COPYING DESTINATION share/doc/planetblupi)
 
