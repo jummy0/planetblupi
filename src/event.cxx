@@ -2178,6 +2178,8 @@ CEvent::DrawButtons ()
     }
   }
 
+  auto movie = this->IsBaseMovieAvailable (1, "mkv");
+
   if (m_phase == EV_PHASE_SETUP || m_phase == EV_PHASE_SETUPp)
   {
     bEnable = true;
@@ -2209,7 +2211,7 @@ CEvent::DrawButtons ()
       bEnable = false;
     SetEnable (EV_BUTTON6, bEnable);
 
-    if (m_pMovie->GetEnable ())
+    if (m_pMovie->GetEnable () && movie)
     {
       SetEnable (EV_BUTTON7, m_bMovie);
       SetEnable (EV_BUTTON8, !m_bMovie);
@@ -2754,7 +2756,7 @@ CEvent::DrawButtons ()
     DrawText (m_pPixmap, pos, res);
 
     char * text = gettext ("No");
-    if (m_pMovie->GetEnable () && m_bMovie)
+    if (m_pMovie->GetEnable () && m_bMovie && movie)
       text = gettext ("Yes");
     lg    = GetTextWidth (text);
     lg    = IsRightReading () ? -lg : lg;
@@ -3348,6 +3350,15 @@ CEvent::IsBaseMusicAvailable (Sint32 music, const std::string & format)
   std::string absolute;
   auto        filename =
     string_format ("music/music%.3d.%s", music - 1, format.c_str ());
+  return FileExists (filename, absolute, LOCATION_BASE);
+}
+
+bool
+CEvent::IsBaseMovieAvailable (Sint32 movie, const std::string & format)
+{
+  std::string absolute;
+  auto        filename =
+    string_format ("movie/play%.3d.%s", movie + 100, format.c_str ());
   return FileExists (filename, absolute, LOCATION_BASE);
 }
 
