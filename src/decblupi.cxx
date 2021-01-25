@@ -1,7 +1,7 @@
 /*
  * This file is part of the planetblupi source code
  * Copyright (C) 1997, Daniel Roux & EPSITEC SA
- * Copyright (C) 2017-2018, Mathieu Schroeter
+ * Copyright (C) 2017-2021, Mathieu Schroeter
  * http://epsitec.ch; http://www.blupi.org; http://github.com/blupi-games
  *
  * This program is free software: you can redistribute it and/or modify
@@ -2496,6 +2496,14 @@ CDecor::BlupiNextAction (Sint32 rank)
           GoalStop (i, true);
           return false;
         }
+
+        /* Prevent time bomb duplication */
+        if (m_blupi[i].goalAction == EV_ACTION_MINE2)
+        {
+          BlupiInitAction (rank, ACTION_STOP);
+          GoalStop (rank, true);
+          return false;
+        }
       }
 
     /* Prevent Blupi to take a trap when an enemy is already captured. */
@@ -2508,9 +2516,10 @@ CDecor::BlupiNextAction (Sint32 rank)
       {
         switch (icon)
         {
-        case 96: // spider in trap
-        case 97: // track in trap
-        case 98: // robot in trap
+        case 96:  // spider in trap
+        case 97:  // track in trap
+        case 98:  // robot in trap
+        case 114: // bomb in trap
           BlupiInitAction (rank, ACTION_STOP);
           GoalStop (rank, true);
           return false;
