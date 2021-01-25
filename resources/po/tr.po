@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-08 07:29+0200\n"
-"PO-Revision-Date: 2019-02-17 23:26+0100\n"
+"POT-Creation-Date: 2021-01-24 19:06-0600\n"
+"PO-Revision-Date: 2021-01-24 19:18-0600\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: tr_TR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.1\n"
+"X-Generator: Poedit 2.1.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid " - FFmpeg (LGPLv2.1)"
@@ -951,8 +951,8 @@ msgid "You have played Planet Blupi."
 msgstr "Planet Blupi'yi oynadınız."
 
 #, c-format
-msgid "construction %d, time %d"
-msgstr "oyun %d, zaman %d"
+msgid "construction %d"
+msgstr "oyun %d"
 
 msgid "en"
 msgstr "tr"
@@ -964,9 +964,27 @@ msgid "http://www.blupi.org            info@blupi.org"
 msgstr "http://www.blupi.org            info@blupi.org"
 
 #, c-format
-msgid "mission %d, time %d"
-msgstr "görev %d, zaman %d"
+msgid "mission %d"
+msgstr "görev %d"
 
 #, c-format
-msgid "training %d, time %d"
-msgstr "eğitim %d, zaman %d"
+msgid "time %d:%05.2f"
+msgstr "zaman %d:%05.2f"
+
+#, c-format
+msgid "training %d"
+msgstr "eğitim %d"
+
+#~ msgid ""
+#~ "construction %d\n"
+#~ "time %d:%05.2f"
+#~ msgstr ""
+#~ "oyun %d\n"
+#~ "zaman %d:%05.2f"
+
+#~ msgid ""
+#~ "training %d\n"
+#~ "time %d:%05.2f"
+#~ msgstr ""
+#~ "eğitim %d\n"
+#~ "zaman %d:%05.2f"

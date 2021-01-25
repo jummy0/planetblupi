@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-08 07:29+0200\n"
-"PO-Revision-Date: 2019-02-17 23:22+0100\n"
+"POT-Creation-Date: 2021-01-24 19:06-0600\n"
+"PO-Revision-Date: 2021-01-24 19:17-0600\n"
 "Last-Translator: tomangelo <tomangelo@wp.pl>\n"
 "Language-Team: TerranovaTeam <contact@colobot.info>\n"
 "Language: pl\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 2.2.1\n"
+"X-Generator: Poedit 2.1.1\n"
 
 msgid " - FFmpeg (LGPLv2.1)"
 msgstr " - FFmpeg (LGPLv2.1)"
@@ -959,8 +959,8 @@ msgid "You have played Planet Blupi."
 msgstr "Grałeś w Planet Blupi"
 
 #, c-format
-msgid "construction %d, time %d"
-msgstr "Budowanie %d, czas %d"
+msgid "construction %d"
+msgstr "Budowanie %d"
 
 msgid "en"
 msgstr "pl"
@@ -972,13 +972,31 @@ msgid "http://www.blupi.org            info@blupi.org"
 msgstr "http://www.blupi.org            info@blupi.org"
 
 #, c-format
-msgid "mission %d, time %d"
-msgstr "Misja %d, czas %d"
+msgid "mission %d"
+msgstr "Misja %d"
 
 #, c-format
-msgid "training %d, time %d"
-msgstr "Trenowanie %d, czas %d"
+msgid "time %d:%05.2f"
+msgstr "czas %d:%05.2f"
+
+#, c-format
+msgid "training %d"
+msgstr "Trenowanie %d"
 
 #, fuzzy
 #~ msgid "Nearest"
 #~ msgstr "Las"
+
+#~ msgid ""
+#~ "construction %d\n"
+#~ "time %d:%05.2f"
+#~ msgstr ""
+#~ "Budowanie %d\n"
+#~ "czas %d:%05.2f"
+
+#~ msgid ""
+#~ "training %d\n"
+#~ "time %d:%05.2f"
+#~ msgstr ""
+#~ "Trenowanie %d\n"
+#~ "czas %d:%05.2f"
