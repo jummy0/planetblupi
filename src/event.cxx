@@ -2435,20 +2435,23 @@ CEvent::DrawButtons ()
 
       if (world >= 0)
       {
+    	pos.y = 30 + 6 + 42 * i;
         if (world >= 200)
           snprintf (
-            text, sizeof (text), gettext ("construction %d, time %d"),
-            (world - 200) + 1, time / 100);
+            text, sizeof (text), gettext ("construction %d"), (world - 200) + 1);
         else if (world >= 100)
           snprintf (
-            text, sizeof (text), gettext ("mission %d, time %d"),
-            (world - 100) + 1, time / 100);
+            text, sizeof (text), gettext ("mission %d"), (world - 100) + 1);
         else
           snprintf (
-            text, sizeof (text), gettext ("training %d, time %d"), world + 1,
-            time / 100);
+            text, sizeof (text), gettext ("training %d"), world + 1);
 
         DrawText (m_pPixmap, pos, text); // partie x, temps t
+        pos.y += 15;
+        snprintf (
+        	text, sizeof (text), gettext ("time %d:%05.2f"),
+			time / 1200, (float)(time % 1200) / 20);
+        DrawText (m_pPixmap, pos, text);
       }
       else
         DrawText (m_pPixmap, pos, gettext ("free slot"), FONTRED); // libre
