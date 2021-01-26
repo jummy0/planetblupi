@@ -38,7 +38,7 @@ const Sint16 table_actions[] = {
   EV_ACTION_DRINK,    EV_ACTION_LABO,    EV_ACTION_FLOWER1,   EV_ACTION_FLOWER1,
   EV_ACTION_DYNAMITE, EV_ACTION_BOATE,   EV_ACTION_DJEEP,     EV_ACTION_FLAG,
   EV_ACTION_EXTRAIT,  EV_ACTION_FABJEEP, EV_ACTION_FABMINE,   EV_ACTION_FABDISC,
-  EV_ACTION_REPEAT,   EV_ACTION_DARMURE, EV_ACTION_FABARMURE,
+  EV_ACTION_REPEAT,   EV_ACTION_DARMURE, EV_ACTION_FABARMURE, EV_ACTION_GROWTREE,
 };
 
 // Supprime tous les blupi.
@@ -3823,7 +3823,7 @@ CDecor::GetDefButton (Point cel)
     (m_blupi[rank].energy <= MAXENERGY / 4 ||
      m_blupi[rank].takeChannel != -1) &&
     (button == BUTTON_ABAT || button == BUTTON_CARRY || button == BUTTON_ROC ||
-     button == BUTTON_CULTIVE))
+     button == BUTTON_CULTIVE || button == BUTTON_GROWTREE))
     return BUTTON_NONE;
 
   if (m_blupi[rank].energy > (MAXENERGY / 4) * 3 && button == BUTTON_EAT)
@@ -4410,6 +4410,7 @@ CDecor::BlupiGetButtons (
     {BUTTON_ROC, 0},       //
     {BUTTON_ROCn, 0},      //
     {BUTTON_CULTIVE, 0},   //
+	{BUTTON_GROWTREE, 0},  //
     {BUTTON_FLOWER, 0},    //
     {BUTTON_FLOWERn, 0},   //
     {BUTTON_DYNAMITE, 0},  //

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-25 23:40+0100\n"
+"POT-Creation-Date: 2021-01-12 20:16-0600\n"
 "PO-Revision-Date: 2019-02-17 23:23+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -453,6 +453,10 @@ msgstr "Ir"
 msgid "Grow tomatoes"
 msgstr "Plantar tomates"
 
+#, fuzzy
+msgid "Grow trees"
+msgstr "Plantar tomates"
+
 msgid "Help"
 msgstr "Ajuda"
 
@@ -829,7 +833,8 @@ msgstr "Pegar"
 msgid "Teleporter"
 msgstr "Teletransportador"
 
-msgid "This game is an original creation of Epsitec SA, CH-1400 Yverdon-les-Bains"
+msgid ""
+"This game is an original creation of Epsitec SA, CH-1400 Yverdon-les-Bains"
 msgstr ""
 
 msgid "This game uses statically linked free and open-source libraries:"

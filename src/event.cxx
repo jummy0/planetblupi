@@ -1116,6 +1116,12 @@ static Phase table[] =
                 { translate ("Grow tomatoes") },
             },
             {
+                EV_BUTTON35,     // grow tree
+                0, {1, 8},
+                170 + 42 * 3, 30 + 52 * 3,
+                { translate ("Grow trees") },
+            },
+            {
                 EV_BUTTON2,     // mange
                 0, {1, 32},
                 170 + 42 * 2, 30 + 52 * 3,
@@ -5189,7 +5195,7 @@ CEvent::SetSpeed (Sint32 speed)
   Sint32 max;
 
   if (m_bSpeed)
-    max = 8;
+    max = 100;
   else
     max = 2;
 

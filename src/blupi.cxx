@@ -419,7 +419,10 @@ HandleEvent (const SDL_Event & event)
       g_pEvent->SetSpeed (4);
       break;
     case SDLK_F8:
-      g_pEvent->SetSpeed (8);
+      if (g_pEvent->GetSpeed() < 8)
+    	  g_pEvent->SetSpeed (8);
+      else
+    	  g_pEvent->SetSpeed (g_pEvent->GetSpeed() * 2);
       break;
     }
     break;
