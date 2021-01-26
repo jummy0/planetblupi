@@ -315,10 +315,12 @@ if (NOT BUILD_JS)
     install (DIRECTORY resources/movie DESTINATION share/planetblupi)
   endif ()
   install (DIRECTORY resources/sound DESTINATION share/planetblupi)
-  install (
-    DIRECTORY resources/music DESTINATION share/planetblupi
-	PATTERN "*.ogg" EXCLUDE
-  )
+  if (MIDI)
+    install (
+      DIRECTORY resources/music DESTINATION share/planetblupi
+      PATTERN "*.mid"
+    )
+  endif ()
   if (OGG)
     install (
       DIRECTORY resources/music DESTINATION share/planetblupi
