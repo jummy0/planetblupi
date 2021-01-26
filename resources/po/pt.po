@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-25 23:40+0100\n"
+"POT-Creation-Date: 2021-01-26 02:42-0600\n"
 "PO-Revision-Date: 2019-02-17 23:23+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -581,42 +581,16 @@ msgstr ""
 msgid "Music choice"
 msgstr "Musica escolhida"
 
-msgid "Music number 1"
-msgstr "Musica 1"
-
-msgid "Music number 10"
-msgstr "Musica 10"
-
-msgid "Music number 2"
-msgstr "Musica 2"
-
-msgid "Music number 3"
-msgstr "Musica 3"
-
-msgid "Music number 4"
-msgstr "Musica 4"
-
-msgid "Music number 5"
-msgstr "Musica 5"
-
-msgid "Music number 6"
-msgstr "Musica 6"
-
-msgid "Music number 7"
-msgstr "Musica 7"
-
-msgid "Music number 8"
-msgstr "Musica 8"
-
-msgid "Music number 9"
-msgstr "Musica 9"
-
 msgid "N"
 msgstr "N"
 
 #, c-format
 msgid "New version available for download on www.blupi.org (v%s)"
 msgstr ""
+
+#, fuzzy
+msgid "Next"
+msgstr "Jogo seguinte"
 
 msgid "Next game"
 msgstr "Jogo seguinte"
@@ -633,6 +607,7 @@ msgstr "Nao"
 msgid "No more enemies"
 msgstr "Matar inimigos"
 
+#, fuzzy
 msgid "No music"
 msgstr "Sem musica"
 
@@ -704,6 +679,10 @@ msgstr "Veneno"
 
 msgid "Prairie"
 msgstr "Campina"
+
+#, fuzzy
+msgid "Previous"
+msgstr "Jogo anterior"
 
 msgid "Previous game"
 msgstr "Jogo anterior"
@@ -829,7 +808,8 @@ msgstr "Pegar"
 msgid "Teleporter"
 msgstr "Teletransportador"
 
-msgid "This game is an original creation of Epsitec SA, CH-1400 Yverdon-les-Bains"
+msgid ""
+"This game is an original creation of Epsitec SA, CH-1400 Yverdon-les-Bains"
 msgstr ""
 
 msgid "This game uses statically linked free and open-source libraries:"
@@ -958,3 +938,37 @@ msgstr "missao %d, tempo %d"
 #, c-format
 msgid "training %d, time %d"
 msgstr "treino %d, tempo %d"
+
+#~ msgid "Music number 1"
+#~ msgstr "Musica 1"
+
+#~ msgid "Music number 10"
+#~ msgstr "Musica 10"
+
+#~ msgid "Music number 2"
+#~ msgstr "Musica 2"
+
+#~ msgid "Music number 3"
+#~ msgstr "Musica 3"
+
+#~ msgid "Music number 4"
+#~ msgstr "Musica 4"
+
+#~ msgid "Music number 5"
+#~ msgstr "Musica 5"
+
+#~ msgid "Music number 6"
+#~ msgstr "Musica 6"
+
+#~ msgid "Music number 7"
+#~ msgstr "Musica 7"
+
+#~ msgid "Music number 8"
+#~ msgstr "Musica 8"
+
+#~ msgid "Music number 9"
+#~ msgstr "Musica 9"
+
+#, fuzzy
+#~ msgid "Previous music"
+#~ msgstr "Jogo anterior"

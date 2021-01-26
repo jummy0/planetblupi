@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-27 15:19+0100\n"
+"POT-Creation-Date: 2021-01-26 02:42-0600\n"
 "PO-Revision-Date: 2019-02-17 14:11+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -593,42 +593,16 @@ msgstr ""
 msgid "Music choice"
 msgstr "בחירת מוסיקה"
 
-msgid "Music number 1"
-msgstr "מוסיקה מספר 1"
-
-msgid "Music number 10"
-msgstr "מוסיקה מספר 10"
-
-msgid "Music number 2"
-msgstr "מוסיקה מספר 2"
-
-msgid "Music number 3"
-msgstr "מוסיקה מספר 3"
-
-msgid "Music number 4"
-msgstr "מוסיקה מספר 4"
-
-msgid "Music number 5"
-msgstr "מוסיקה מספר 5"
-
-msgid "Music number 6"
-msgstr "מוסיקה מספר 6"
-
-msgid "Music number 7"
-msgstr "מוסיקה מספר 7"
-
-msgid "Music number 8"
-msgstr "מוסיקה מספר 8"
-
-msgid "Music number 9"
-msgstr "מוסיקה מספר 9"
-
 msgid "N"
 msgstr "צ"
 
 #, c-format
 msgid "New version available for download on www.blupi.org (v%s)"
 msgstr "גרסה חדשה זמינה להורדה בכתובת www.blupi.org (v%s)"
+
+#, fuzzy
+msgid "Next"
+msgstr "משחק הבא"
 
 msgid "Next game"
 msgstr "משחק הבא"
@@ -645,6 +619,7 @@ msgstr "לא"
 msgid "No more enemies"
 msgstr "אין יותר אויבים"
 
+#, fuzzy
 msgid "No music"
 msgstr "ללא מוסיקה"
 
@@ -716,6 +691,10 @@ msgstr "עגבניות מורעלות"
 
 msgid "Prairie"
 msgstr "ערבה"
+
+#, fuzzy
+msgid "Previous"
+msgstr "משחק קודם"
 
 msgid "Previous game"
 msgstr "משחק קודם"
@@ -973,3 +952,37 @@ msgstr "פעולה %d זמן %d"
 #, c-format
 msgid "training %d, time %d"
 msgstr "אימון %d זמן %d"
+
+#~ msgid "Music number 1"
+#~ msgstr "מוסיקה מספר 1"
+
+#~ msgid "Music number 10"
+#~ msgstr "מוסיקה מספר 10"
+
+#~ msgid "Music number 2"
+#~ msgstr "מוסיקה מספר 2"
+
+#~ msgid "Music number 3"
+#~ msgstr "מוסיקה מספר 3"
+
+#~ msgid "Music number 4"
+#~ msgstr "מוסיקה מספר 4"
+
+#~ msgid "Music number 5"
+#~ msgstr "מוסיקה מספר 5"
+
+#~ msgid "Music number 6"
+#~ msgstr "מוסיקה מספר 6"
+
+#~ msgid "Music number 7"
+#~ msgstr "מוסיקה מספר 7"
+
+#~ msgid "Music number 8"
+#~ msgstr "מוסיקה מספר 8"
+
+#~ msgid "Music number 9"
+#~ msgstr "מוסיקה מספר 9"
+
+#, fuzzy
+#~ msgid "Previous music"
+#~ msgstr "משחק קודם"

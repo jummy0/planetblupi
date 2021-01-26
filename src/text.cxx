@@ -128,7 +128,7 @@ GetCharWidth (const char *& c, Sint32 font)
      9, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,  0,
      0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 10, 10,
      5,  6,  9, 13, 11, 12, 12,  6,  6,  6, 12, 12,  5,  9,  6,  9,
-     8,  8,  9,  9,  8,  9,  8,  8,  9,  9,  6,  6,  8,  9, 10, 11,
+     9,  9,  9,  9,  9,  9,  9,  9,  9,  9,  6,  6,  8,  9, 10, 11,
     12,  8,  9,  9,  9,  8,  8,  8,  9,  4,  8,  9,  8, 10,  9,  9,
      8,  9,  8,  9, 10,  8,  9, 11,  9,  8, 10,  7, 10,  7, 13, 13,
      9,  9,  8,  8,  8,  8,  6,  8,  8,  4,  6,  8,  4, 12,  8,  8,
@@ -457,6 +457,12 @@ GetBignumInfo (Sint32 num, Sint32 & start, Sint32 & lg)
 void
 DrawBignum (CPixmap * pPixmap, Point pos, Sint32 num)
 {
+  DrawBignum (pPixmap, pos, num, false);
+}
+
+void
+DrawBignum (CPixmap * pPixmap, Point pos, Sint32 num, bool light)
+{
   char   string[10];
   Sint32 i = 0;
   Sint32 start, lg;
@@ -472,7 +478,10 @@ DrawBignum (CPixmap * pPixmap, Point pos, Sint32 num)
 
     rect.left  = start;
     rect.right = start + lg;
-    pPixmap->DrawPart (-1, CHBIGNUM, pos, rect);
+    if (light)
+    	pPixmap->DrawPart (-1, CHBIGNUMLIGHT, pos, rect);
+    else
+    	pPixmap->DrawPart (-1, CHBIGNUM, pos, rect);
     pos.x += lg + 4;
 
     i++;

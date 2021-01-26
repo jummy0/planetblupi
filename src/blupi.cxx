@@ -419,7 +419,7 @@ HandleEvent (const SDL_Event & event)
       g_pEvent->SetSpeed (4);
       break;
     case SDLK_F8:
-      if (g_pEvent->SetSpeed < 8)
+      if (g_pEvent->GetSpeed() < 8)
         g_pEvent->SetSpeed (8);
       else
     	g_pEvent->SetSpeed (g_pEvent->GetSpeed() << 1);
@@ -1032,6 +1032,12 @@ DoInit (int argc, char * argv[], bool & exit)
   if (!g_pPixmap->Cache (CHBIGNUM, "bignum.png", totalDim, iconDim))
   {
     InitFail ("Cache bignum.png");
+    return EXIT_FAILURE;
+  }
+
+  if (!g_pPixmap->Cache (CHBIGNUMLIGHT, "bignum-light.png", totalDim, iconDim))
+  {
+    InitFail ("Cache bignum-light.png");
     return EXIT_FAILURE;
   }
 

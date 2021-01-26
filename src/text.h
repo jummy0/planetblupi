@@ -41,4 +41,5 @@ void DrawTextCenter (
 Sint32 GetTextHeight (char * pText, Sint32 font = 0, Sint32 part = -1);
 Sint32 GetTextWidth (const char * pText, Sint32 font = 0);
 void   DrawBignum (CPixmap * pPixmap, Point pos, Sint32 num);
+void   DrawBignum (CPixmap * pPixmap, Point pos, Sint32 num, bool light);
 Sint32 GetBignumWidth (Sint32 num);

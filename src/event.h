@@ -209,6 +209,8 @@ protected:
   bool                                     m_bSchool;
   bool                                     m_bPrivate;
   bool                                     m_bAccessBuild;
+  bool                                     m_bEnergyPercentDisplay;
+  bool                                     m_bTimeDisplay;
   CPixmap *                                m_pPixmap;
   CDecor *                                 m_pDecor;
   CSound *                                 m_pSound;
