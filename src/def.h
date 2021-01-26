@@ -85,8 +85,10 @@
 #define CHTEXT          13
 #define CHBIGNUM        14
 #define CHMASK2         15
+#define CHBIGNUMLIGHT   16
 
 #define MAX_PRIVATE_MISSIONS 20
+#define MAXMUSIC        20
 
 #define FOGHIDE         4
 // clang-format on

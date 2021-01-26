@@ -405,6 +405,8 @@ public:
   void SetInvincible (bool bInvincible);
   bool GetSuper ();
   void SetSuper (bool bSuper);
+  bool GetControlOverride ();
+  void SetControlOverride (bool bControlOverride);
   void FlipOutline ();
   bool PutFloor (Point cel, Sint32 channel, Sint32 icon);
   bool PutObject (Point cel, Sint32 channel, Sint32 icon);
@@ -494,6 +496,7 @@ protected:
   bool      m_bBuild;        // true -> construction
   bool      m_bInvincible;   // true -> cheat code
   bool      m_bSuper;        // true -> cheat code
+  bool      m_bControlOverride;//true-> cheat code
   Uint32    m_colors[100];
   Sint32    m_time;            // temps relatif global
   Sint32    m_timeConst;       // temps relatif global constant

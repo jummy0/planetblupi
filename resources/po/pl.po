@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-24 19:06-0600\n"
-"PO-Revision-Date: 2021-01-24 19:17-0600\n"
+"POT-Creation-Date: 2021-01-26 02:42-0600\n"
+"PO-Revision-Date: 2019-02-17 23:22+0100\n"
 "Last-Translator: tomangelo <tomangelo@wp.pl>\n"
 "Language-Team: TerranovaTeam <contact@colobot.info>\n"
 "Language: pl\n"
@@ -595,42 +595,16 @@ msgstr ""
 msgid "Music choice"
 msgstr "Wybór muzyki"
 
-msgid "Music number 1"
-msgstr "Muzyka numer 1"
-
-msgid "Music number 10"
-msgstr "Muzyka numer 10"
-
-msgid "Music number 2"
-msgstr "Muzyka numer 2"
-
-msgid "Music number 3"
-msgstr "Muzyka numer 3"
-
-msgid "Music number 4"
-msgstr "Muzyka numer 4"
-
-msgid "Music number 5"
-msgstr "Muzyka numer 5"
-
-msgid "Music number 6"
-msgstr "Muzyka numer 6"
-
-msgid "Music number 7"
-msgstr "Muzyka numer 7"
-
-msgid "Music number 8"
-msgstr "Muzyka numer 8"
-
-msgid "Music number 9"
-msgstr "Muzyka numer 9"
-
 msgid "N"
 msgstr "Pn"
 
 #, c-format
 msgid "New version available for download on www.blupi.org (v%s)"
 msgstr "Nowa wersja dostępna do pobrania na www.blupi.org (v%s)"
+
+#, fuzzy
+msgid "Next"
+msgstr "Następne zadanie"
 
 msgid "Next game"
 msgstr "Następne zadanie"
@@ -647,6 +621,7 @@ msgstr "Nie"
 msgid "No more enemies"
 msgstr "Brak przeciwników"
 
+#, fuzzy
 msgid "No music"
 msgstr "Brak muzyki"
 
@@ -718,6 +693,10 @@ msgstr "Trucizna"
 
 msgid "Prairie"
 msgstr "Preria"
+
+#, fuzzy
+msgid "Previous"
+msgstr "Poprzednie zadanie"
 
 msgid "Previous game"
 msgstr "Poprzednie zadanie"
@@ -982,6 +961,36 @@ msgstr "czas %d:%05.2f"
 #, c-format
 msgid "training %d"
 msgstr "Trenowanie %d"
+
+#~ msgid "Music number 1"
+#~ msgstr "Muzyka numer 1"
+
+#~ msgid "Music number 10"
+#~ msgstr "Muzyka numer 10"
+
+#~ msgid "Music number 2"
+#~ msgstr "Muzyka numer 2"
+
+#~ msgid "Music number 3"
+#~ msgstr "Muzyka numer 3"
+
+#~ msgid "Music number 4"
+#~ msgstr "Muzyka numer 4"
+
+#~ msgid "Music number 5"
+#~ msgstr "Muzyka numer 5"
+
+#~ msgid "Music number 6"
+#~ msgstr "Muzyka numer 6"
+
+#~ msgid "Music number 7"
+#~ msgstr "Muzyka numer 7"
+
+#~ msgid "Music number 8"
+#~ msgstr "Muzyka numer 8"
+
+#~ msgid "Music number 9"
+#~ msgstr "Muzyka numer 9"
 
 #, fuzzy
 #~ msgid "Nearest"

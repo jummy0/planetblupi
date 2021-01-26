@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-24 19:06-0600\n"
-"PO-Revision-Date: 2021-01-24 19:18-0600\n"
+"POT-Creation-Date: 2021-01-26 02:42-0600\n"
+"PO-Revision-Date: 2019-02-17 23:26+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: tr_TR\n"
@@ -591,42 +591,16 @@ msgstr "Müzik seviyesi"
 msgid "Music choice"
 msgstr "Müzik seçimi"
 
-msgid "Music number 1"
-msgstr "Müzik no 1"
-
-msgid "Music number 10"
-msgstr "Müzik no 10"
-
-msgid "Music number 2"
-msgstr "Müzik no 2"
-
-msgid "Music number 3"
-msgstr "Müzik no 3"
-
-msgid "Music number 4"
-msgstr "Müzik no 4"
-
-msgid "Music number 5"
-msgstr "Müzik no 5"
-
-msgid "Music number 6"
-msgstr "Müzik no 6"
-
-msgid "Music number 7"
-msgstr "Müzik no 7"
-
-msgid "Music number 8"
-msgstr "Müzik no 8"
-
-msgid "Music number 9"
-msgstr "Müzik no 9"
-
 msgid "N"
 msgstr "K"
 
 #, c-format
 msgid "New version available for download on www.blupi.org (v%s)"
 msgstr "Oyunun yeni bir versiyonu mevcut www.blupi.org (v%s)"
+
+#, fuzzy
+msgid "Next"
+msgstr "Sonraki oyun"
 
 msgid "Next game"
 msgstr "Sonraki oyun"
@@ -643,6 +617,7 @@ msgstr "Hayır"
 msgid "No more enemies"
 msgstr "Düşman kalmasın"
 
+#, fuzzy
 msgid "No music"
 msgstr "Müzik yok"
 
@@ -714,6 +689,10 @@ msgstr "Zehir"
 
 msgid "Prairie"
 msgstr "Bozkır"
+
+#, fuzzy
+msgid "Previous"
+msgstr "Önceki oyun"
 
 msgid "Previous game"
 msgstr "Önceki oyun"
@@ -841,7 +820,8 @@ msgstr "Al"
 msgid "Teleporter"
 msgstr "Işınlayıcı"
 
-msgid "This game is an original creation of Epsitec SA, CH-1400 Yverdon-les-Bains"
+msgid ""
+"This game is an original creation of Epsitec SA, CH-1400 Yverdon-les-Bains"
 msgstr "Bu oyun Epsitec SA, CH-1400 Yverdon-les-Bains'in orijinal ürünüdür"
 
 msgid "This game uses statically linked free and open-source libraries:"
@@ -921,7 +901,8 @@ msgid "Water"
 msgstr "Su"
 
 msgid "We hope you have had as much fun playing the game as we had making it !"
-msgstr "Umarız ki oyunu oynamaktan, bizim oyunu yaptığımız kadar, eğlenmişsinizdir !"
+msgstr ""
+"Umarız ki oyunu oynamaktan, bizim oyunu yaptığımız kadar, eğlenmişsinizdir !"
 
 msgid "Weapons"
 msgstr "Silahlar"
@@ -967,7 +948,40 @@ msgstr "http://www.blupi.org            info@blupi.org"
 msgid "mission %d"
 msgstr "görev %d"
 
-#, c-format
+#~ msgid "Music number 1"
+#~ msgstr "Müzik no 1"
+
+#~ msgid "Music number 10"
+#~ msgstr "Müzik no 10"
+
+#~ msgid "Music number 2"
+#~ msgstr "Müzik no 2"
+
+#~ msgid "Music number 3"
+#~ msgstr "Müzik no 3"
+
+#~ msgid "Music number 4"
+#~ msgstr "Müzik no 4"
+
+#~ msgid "Music number 5"
+#~ msgstr "Müzik no 5"
+
+#~ msgid "Music number 6"
+#~ msgstr "Müzik no 6"
+
+#~ msgid "Music number 7"
+#~ msgstr "Müzik no 7"
+
+#~ msgid "Music number 8"
+#~ msgstr "Müzik no 8"
+
+#~ msgid "Music number 9"
+#~ msgstr "Müzik no 9"
+
+#, fuzzy
+#~ msgid "Previous music"
+#~ msgstr "Önceki oyun"
+
 msgid "time %d:%05.2f"
 msgstr "zaman %d:%05.2f"
 

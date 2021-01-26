@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-24 19:06-0600\n"
-"PO-Revision-Date: 2021-01-24 19:11-0600\n"
+"POT-Creation-Date: 2021-01-26 02:42-0600\n"
+"PO-Revision-Date: 2019-02-17 23:21+0100\n"
 "Last-Translator: Mathieu Schroeter <mathieu@schroetersa.ch>\n"
 "Language-Team: French <kde-i18n-doc@kde.org>\n"
 "Language: fr\n"
@@ -595,42 +595,16 @@ msgstr ""
 msgid "Music choice"
 msgstr "Choix de la musique"
 
-msgid "Music number 1"
-msgstr "Musique numéro 1"
-
-msgid "Music number 10"
-msgstr "Musique numéro 10"
-
-msgid "Music number 2"
-msgstr "Musique numéro 2"
-
-msgid "Music number 3"
-msgstr "Musique numéro 3"
-
-msgid "Music number 4"
-msgstr "Musique numéro 4"
-
-msgid "Music number 5"
-msgstr "Musique numéro 5"
-
-msgid "Music number 6"
-msgstr "Musique numéro 6"
-
-msgid "Music number 7"
-msgstr "Musique numéro 7"
-
-msgid "Music number 8"
-msgstr "Musique numéro 8"
-
-msgid "Music number 9"
-msgstr "Musique numéro 9"
-
 msgid "N"
 msgstr "N"
 
 #, c-format
 msgid "New version available for download on www.blupi.org (v%s)"
 msgstr "Nouvelle version disponible au téléchargement sur www.blupi.org (v%s)"
+
+#, fuzzy
+msgid "Next"
+msgstr "Partie suivante"
 
 msgid "Next game"
 msgstr "Partie suivante"
@@ -647,6 +621,7 @@ msgstr "Non"
 msgid "No more enemies"
 msgstr "Plus d'ennemis"
 
+#, fuzzy
 msgid "No music"
 msgstr "Pas de musique"
 
@@ -718,6 +693,10 @@ msgstr "Poison"
 
 msgid "Prairie"
 msgstr "Prairie"
+
+#, fuzzy
+msgid "Previous"
+msgstr "Partie précédente"
 
 msgid "Previous game"
 msgstr "Partie précédente"
@@ -1006,11 +985,45 @@ msgstr "entraînement %d"
 #~ msgid "Flowers"
 #~ msgstr "Fleurs"
 
+#~ msgid "Music number 1"
+#~ msgstr "Musique numéro 1"
+
+#~ msgid "Music number 10"
+#~ msgstr "Musique numéro 10"
+
+#~ msgid "Music number 2"
+#~ msgstr "Musique numéro 2"
+
+#~ msgid "Music number 3"
+#~ msgstr "Musique numéro 3"
+
+#~ msgid "Music number 4"
+#~ msgstr "Musique numéro 4"
+
+#~ msgid "Music number 5"
+#~ msgstr "Musique numéro 5"
+
+#~ msgid "Music number 6"
+#~ msgstr "Musique numéro 6"
+
+#~ msgid "Music number 7"
+#~ msgstr "Musique numéro 7"
+
+#~ msgid "Music number 8"
+#~ msgstr "Musique numéro 8"
+
+#~ msgid "Music number 9"
+#~ msgstr "Musique numéro 9"
+
 #~ msgid "N/A"
 #~ msgstr "ND"
 
 #~ msgid "Nearest"
 #~ msgstr "Au plus proche"
+
+#, fuzzy
+#~ msgid "Previous music"
+#~ msgstr "Partie précédente"
 
 #~ msgid "Quit BLUPI"
 #~ msgstr "Quitter BLUPI"

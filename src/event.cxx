@@ -52,6 +52,7 @@
 #define DEF_TIME_HELP 10000 // ~10 minutes
 #define DEF_TIME_DEMO 1000  // ~1 minute
 #define MAXDEMO 2000
+#define MAXCHEAT 12
 
 typedef struct {
   // v1.0
@@ -84,16 +85,19 @@ typedef struct {
 // Toutes les premières lettres doivent
 // être différentes !
 
-static char cheat_code[9][20] = {
-  "vision",      // 0
-  "power",       // 1
-  "lonesome",    // 2
-  "allmissions", // 3
-  "quick",       // 4
-  "helpme",      // 5
-  "invincible",  // 6
-  "superblupi",  // 7
-  "construire",  // 8 (CPOTUSVJSF)
+static char cheat_code[MAXCHEAT][20] = {
+  "vision",        // 0
+  "power",         // 1
+  "lonesome",      // 2
+  "allmissions",   // 3
+  "quick",         // 4
+  "helpme",        // 5
+  "invincible",    // 6
+  "superblupi",    // 7
+  "construire",    // 8 (CPOTUSVJSF)
+  "grandmaitre",   // 9
+  "energypercent", // 10
+  "time",          // 11
 };
 
 /////////////////////////////////////////////////////////////////////////////
@@ -1305,72 +1309,25 @@ static Phase table[] =
         CPixmap::Mode::FIX_REVERSABLE,
         true,
         {
+
             {
                 EV_BUTTON1,
-                0, {1, 40},
-                11, 101,
-                { translate ("No music") },
+                0, {1, 50},
+                11 + 42 * 0, 101,
+                { translate ("Previous") },
             },
             {
                 EV_BUTTON2,
-                0, {1, 44},
-                170 + 42 * 0, 30 + 42 * 0,
-                { translate ("Music number 1") },
+                0, {1, 51},
+                11 + 42 * 2, 101,
+                { translate ("Next") },
             },
-            {
-                EV_BUTTON3,
-                0, {1, 44},
-                170 + 42 * 0, 30 + 42 * 1,
-                { translate ("Music number 2") },
-            },
-            {
-                EV_BUTTON4,
-                0, {1, 44},
-                170 + 42 * 0, 30 + 42 * 2,
-                { translate ("Music number 3") },
-            },
-            {
-                EV_BUTTON5,
-                0, {1, 44},
-                170 + 42 * 0, 30 + 42 * 3,
-                { translate ("Music number 4") },
-            },
-            {
-                EV_BUTTON6,
-                0, {1, 44},
-                170 + 42 * 0, 30 + 42 * 4,
-                { translate ("Music number 5") },
-            },
-            {
-                EV_BUTTON7,
-                0, {1, 44},
-                170 + 42 * 0, 30 + 42 * 5,
-                { translate ("Music number 6") },
-            },
-            {
-                EV_BUTTON8,
-                0, {1, 44},
-                170 + 42 * 0, 30 + 42 * 6,
-                { translate ("Music number 7") },
-            },
-            {
-                EV_BUTTON9,
-                0, {1, 44},
-                170 + 42 * 0, 30 + 42 * 7,
-                { translate ("Music number 8") },
-            },
-            {
-                EV_BUTTON10,
-                0, {1, 44},
-                170 + 42 * 0, 30 + 42 * 8,
-                { translate ("Music number 9") },
-            },
-            {
-                EV_BUTTON11,
-                0, {1, 44},
-                170 + 42 * 0, 30 + 42 * 9,
-                { translate ("Music number 10") },
-            },
+			{
+			    EV_BUTTON3,
+			    0, {1, 40},
+			    11 + 42 * 1, 101,
+			    { translate ("No music") },
+			},
             {
                 EV_PHASE_BUILD,
                 0, {1, 50},
@@ -2139,6 +2096,14 @@ CEvent::DrawButtons ()
       AddCheatCode (text, cheat_code[6]);
     if (m_pDecor->GetSuper ())
       AddCheatCode (text, cheat_code[7]);
+    if (m_bAccessBuild)
+      AddCheatCode (text, cheat_code[8]);
+    if (m_pDecor->GetControlOverride ())
+      AddCheatCode (text, cheat_code[9]);
+    if (m_bEnergyPercentDisplay)
+      AddCheatCode (text, cheat_code[10]);
+    if (m_bTimeDisplay)
+      AddCheatCode (text, cheat_code[11]);
 
     if (text[0])
     {
@@ -2187,7 +2152,7 @@ CEvent::DrawButtons ()
       bEnable = false;
     SetEnable (EV_BUTTON1, bEnable);
     bEnable = true;
-    if (m_speed >= (m_bSpeed ? 8 : 2))
+    if (m_speed >= (m_bSpeed ? 64 : 2))
       bEnable = false;
     SetEnable (EV_BUTTON2, bEnable);
 
@@ -2286,6 +2251,19 @@ CEvent::DrawButtons ()
         m_jauges[i].SetType (types[i]);
       }
       m_jauges[i].Draw ();
+      pos.x = IsRightReading () ? LXIMAGE () - 21 : 21;
+      pos.y = 150;
+
+      if (m_bEnergyPercentDisplay)
+      {
+        snprintf(text, sizeof (text), "%d%%", levels[0]);
+        if (levels[0] != -1)
+      	  DrawText(m_pPixmap, pos, text);
+        pos.y += 25;
+        snprintf(text, sizeof (text), "%d%%", levels[1]);
+        if (levels[1] != -1)
+      	  DrawText(m_pPixmap, pos, text);
+      }
     }
 
     // Dessine le menu.
@@ -2503,6 +2481,11 @@ CEvent::DrawButtons ()
     if (IsRightReading ())
       x = LXIMAGE () - x;
     DrawTextCenter (gettext ("Music choice"), x, 20);
+    if (IsRightReading ())
+    	x = LXIMAGE () - 179 - GetBignumWidth (m_pDecor->GetMusic ()) / 2;
+    else
+    	x = 179 - GetBignumWidth (m_pDecor->GetMusic ()) / 2;
+    DrawBignum (m_pPixmap, (Point){x, 41}, m_pDecor->GetMusic (), true);
   }
 
   // Dessine les textes pour le choix de la région.
@@ -2932,6 +2915,17 @@ CEvent::DrawButtons ()
   // Draw the tooltips.
   if (m_textToolTips[0] != 0)
     DrawText (m_pPixmap, m_posToolTips, m_textToolTips);
+
+  // Draw the time.
+  if (m_bTimeDisplay)
+  {
+	snprintf (text, sizeof (text), "%d:%05.2f / %d:%05.2f",
+	    m_pDecor->GetTime() / (1200), (float)(m_pDecor->GetTime() % 1200) / 20,
+		m_pDecor->GetTotalTime() / (1200), (float)(m_pDecor->GetTotalTime() % 1200) / 20);
+	pos.x = IsRightReading () ? 10 : LXIMAGE() - GetTextWidth(text) - 10;
+	pos.y = LYIMAGE() - DIMTEXTY;
+	DrawText (m_pPixmap, pos, text);
+  }
 
   return true;
 }
@@ -3644,7 +3638,7 @@ CEvent::ChangePhase (Uint32 phase)
       bEnable = false;
 
     if (m_bPrivate)
-      bEnable = GetWorld () < 20 - 1;
+      bEnable = GetWorld () < MAX_PRIVATE_MISSIONS - 1;
     SetEnable (EV_NEXT, bEnable);
 
     bHide = true;
@@ -3702,8 +3696,9 @@ CEvent::ChangePhase (Uint32 phase)
   {
     music = m_pDecor->GetMusic ();
 
-    for (i = 0; i < 11; i++)
-      SetState (EV_BUTTON1 + i, music == i ? 1 : 0);
+    SetEnable (EV_BUTTON1, music > 0);
+    SetEnable (EV_BUTTON2, music < MAXMUSIC);
+    SetState (EV_BUTTON3, music == 0 ? 1 : 0);
   }
 
   if (m_phase == EV_PHASE_REGION)
@@ -4369,8 +4364,21 @@ CEvent::ChangeButtons (Sint32 message)
 
   if (m_phase == EV_PHASE_MUSIC)
   {
-    m_pDecor->SetMusic (message - EV_BUTTON1);
-    ChangePhase (m_phase);
+	// todo: jump by 5 or 10 when CTRL is pressed
+	if (message == EV_BUTTON1)
+	{
+	  if (m_pDecor->GetMusic () > 0)
+        m_pDecor->SetMusic (m_pDecor->GetMusic() - 1);
+    }
+	else if (message == EV_BUTTON2)
+	{
+	  if (m_pDecor->GetMusic () < MAXMUSIC)
+	    m_pDecor->SetMusic (m_pDecor->GetMusic() + 1);
+	}
+	else if (message == EV_BUTTON3)
+		m_pDecor->SetMusic (0);
+
+	ChangePhase (m_phase);
   }
 
   if (m_phase == EV_PHASE_REGION)
@@ -4389,7 +4397,7 @@ CEvent::ChangeButtons (Sint32 message)
     if (message == EV_BUTTON2)
     {
       if (m_bSpeed)
-        max = 8;
+        max = 64;
       else
         max = 2;
       if (m_speed < max)
@@ -5203,7 +5211,7 @@ CEvent::SetSpeed (Sint32 speed)
   Sint32 max;
 
   if (m_bSpeed)
-    max = 8;
+    max = 64;
   else
     max = 2;
 
@@ -5716,7 +5724,7 @@ CEvent::TreatEventBase (const SDL_Event & event)
       if (m_posCheat == 0) // première lettre ?
       {
         m_rankCheat = -1;
-        for (i = 0; i < 9; i++)
+        for (i = 0; i < MAXCHEAT; i++)
         {
           if ((char) event.key.keysym.sym == cheat_code[i][0])
           {
@@ -5782,6 +5790,24 @@ CEvent::TreatEventBase (const SDL_Event & event)
             {
               m_bAccessBuild = !m_bAccessBuild;
               bEnable        = m_bAccessBuild;
+              break;
+            }
+            case 9: // grandmaitre ?
+            {
+              m_pDecor->SetControlOverride (!m_pDecor->GetControlOverride ());
+              bEnable = m_pDecor->GetControlOverride ();
+              break;
+            }
+            case 10: // energypercent ?
+            {
+              m_bEnergyPercentDisplay = !m_bEnergyPercentDisplay;
+              bEnable                 = m_bEnergyPercentDisplay;
+              break;
+            }
+            case 11: // time ?
+            {
+              m_bTimeDisplay = !m_bTimeDisplay;
+              bEnable        = m_bTimeDisplay;
               break;
             }
             }

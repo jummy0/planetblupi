@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-24 21:19-0600\n"
+"POT-Creation-Date: 2021-01-26 03:23-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -488,37 +488,13 @@ msgstr ""
 msgid "Robot on striped paving stones"
 msgstr ""
 
+msgid "Previous"
+msgstr ""
+
+msgid "Next"
+msgstr ""
+
 msgid "No music"
-msgstr ""
-
-msgid "Music number 1"
-msgstr ""
-
-msgid "Music number 2"
-msgstr ""
-
-msgid "Music number 3"
-msgstr ""
-
-msgid "Music number 4"
-msgstr ""
-
-msgid "Music number 5"
-msgstr ""
-
-msgid "Music number 6"
-msgstr ""
-
-msgid "Music number 7"
-msgstr ""
-
-msgid "Music number 8"
-msgstr ""
-
-msgid "Music number 9"
-msgstr ""
-
-msgid "Music number 10"
 msgstr ""
 
 msgid "Prairie"
