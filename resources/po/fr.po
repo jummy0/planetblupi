@@ -14,7 +14,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.1\n"
+"X-Generator: Poedit 2.1.1\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 msgid " - FFmpeg (LGPLv2.1)"
@@ -939,8 +939,8 @@ msgid "You have played Planet Blupi."
 msgstr "Vous avez joué à Planet Blupi."
 
 #, c-format
-msgid "construction %d, time %d"
-msgstr "construction %d, temps %d"
+msgid "construction %d"
+msgstr "construction %d"
 
 msgid "en"
 msgstr "fr"
@@ -952,12 +952,16 @@ msgid "http://www.blupi.org            info@blupi.org"
 msgstr "http://www.blupi.org            info@blupi.org"
 
 #, c-format
-msgid "mission %d, time %d"
-msgstr "mission %d, temps %d"
+msgid "mission %d"
+msgstr "mission %d"
 
 #, c-format
-msgid "training %d, time %d"
-msgstr "entraînement %d, temps %d"
+msgid "time %d:%05.2f"
+msgstr "temps %d:%05.2f"
+
+#, c-format
+msgid "training %d"
+msgstr "entraînement %d"
 
 #~ msgid "Best"
 #~ msgstr "Meilleure"
@@ -1029,3 +1033,17 @@ msgstr "entraînement %d, temps %d"
 
 #~ msgid "Use the nearest render quality"
 #~ msgstr "Utilise la qualité de rendu au plus proche"
+
+#~ msgid ""
+#~ "construction %d\n"
+#~ "time %d:%05.2f"
+#~ msgstr ""
+#~ "construction %d\n"
+#~ "temps %d:%05.2f"
+
+#~ msgid ""
+#~ "training %d\n"
+#~ "time %d:%05.2f"
+#~ msgstr ""
+#~ "entraînement %d\n"
+#~ "temps %d:%05.2f"

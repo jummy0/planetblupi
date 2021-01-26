@@ -2143,6 +2143,8 @@ CEvent::DrawButtons ()
     }
   }
 
+  auto movie = this->IsBaseMovieAvailable (1, "mkv");
+
   if (m_phase == EV_PHASE_SETUP || m_phase == EV_PHASE_SETUPp)
   {
     bEnable = true;
@@ -2174,7 +2176,7 @@ CEvent::DrawButtons ()
       bEnable = false;
     SetEnable (EV_BUTTON6, bEnable);
 
-    if (m_pMovie->GetEnable ())
+    if (m_pMovie->GetEnable () && movie)
     {
       SetEnable (EV_BUTTON7, m_bMovie);
       SetEnable (EV_BUTTON8, !m_bMovie);
@@ -2411,20 +2413,23 @@ CEvent::DrawButtons ()
 
       if (world >= 0)
       {
+    	pos.y = 30 + 6 + 42 * i;
         if (world >= 200)
           snprintf (
-            text, sizeof (text), gettext ("construction %d, time %d"),
-            (world - 200) + 1, time / 100);
+            text, sizeof (text), gettext ("construction %d"), (world - 200) + 1);
         else if (world >= 100)
           snprintf (
-            text, sizeof (text), gettext ("mission %d, time %d"),
-            (world - 100) + 1, time / 100);
+            text, sizeof (text), gettext ("mission %d"), (world - 100) + 1);
         else
           snprintf (
-            text, sizeof (text), gettext ("training %d, time %d"), world + 1,
-            time / 100);
+            text, sizeof (text), gettext ("training %d"), world + 1);
 
         DrawText (m_pPixmap, pos, text); // partie x, temps t
+        pos.y += 15;
+        snprintf (
+        	text, sizeof (text), gettext ("time %d:%05.2f"),
+			time / 1200, (float)(time % 1200) / 20);
+        DrawText (m_pPixmap, pos, text);
       }
       else
         DrawText (m_pPixmap, pos, gettext ("free slot"), FONTRED); // libre
@@ -2734,7 +2739,7 @@ CEvent::DrawButtons ()
     DrawText (m_pPixmap, pos, res);
 
     char * text = gettext ("No");
-    if (m_pMovie->GetEnable () && m_bMovie)
+    if (m_pMovie->GetEnable () && m_bMovie && movie)
       text = gettext ("Yes");
     lg    = GetTextWidth (text);
     lg    = IsRightReading () ? -lg : lg;
@@ -3339,6 +3344,15 @@ CEvent::IsBaseMusicAvailable (Sint32 music, const std::string & format)
   std::string absolute;
   auto        filename =
     string_format ("music/music%.3d.%s", music - 1, format.c_str ());
+  return FileExists (filename, absolute, LOCATION_BASE);
+}
+
+bool
+CEvent::IsBaseMovieAvailable (Sint32 movie, const std::string & format)
+{
+  std::string absolute;
+  auto        filename =
+    string_format ("movie/play%.3d.%s", movie + 100, format.c_str ());
   return FileExists (filename, absolute, LOCATION_BASE);
 }
 

@@ -107,6 +107,7 @@ public:
   Sint32      GetImageWorld ();
   bool        IsHelpHide ();
   bool        IsBaseMusicAvailable (Sint32 music, const std::string & format);
+  bool        IsBaseMovieAvailable (Sint32 movie, const std::string & format);
   std::string GetMusicLocation (Sint32 music);
   bool        LoadBackground ();
   bool        ChangePhase (Uint32 phase);

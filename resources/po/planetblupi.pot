@@ -571,15 +571,19 @@ msgid "REC"
 msgstr ""
 
 #, c-format
-msgid "construction %d, time %d"
+msgid "construction %d"
 msgstr ""
 
 #, c-format
-msgid "mission %d, time %d"
+msgid "mission %d"
 msgstr ""
 
 #, c-format
-msgid "training %d, time %d"
+msgid "training %d"
+msgstr ""
+
+#, c-format
+msgid "time %d:%05.2f"
 msgstr ""
 
 msgid "free slot"

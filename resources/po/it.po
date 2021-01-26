@@ -15,7 +15,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.1\n"
+"X-Generator: Poedit 2.1.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid " - FFmpeg (LGPLv2.1)"
@@ -943,8 +943,8 @@ msgid "You have played Planet Blupi."
 msgstr "Hai giocato con Planet Blupi."
 
 #, c-format
-msgid "construction %d, time %d"
-msgstr "Costruzione %d, tempo %d"
+msgid "construction %d"
+msgstr "costruzione %d"
 
 msgid "en"
 msgstr "it"
@@ -956,12 +956,16 @@ msgid "http://www.blupi.org            info@blupi.org"
 msgstr "http://www.blupi.org            info@blupi.org"
 
 #, c-format
-msgid "mission %d, time %d"
-msgstr "missione %d, tempo %d"
+msgid "mission %d"
+msgstr "missione %d"
 
 #, c-format
-msgid "training %d, time %d"
-msgstr "allenamento %d, tempo %d"
+msgid "time %d:%05.2f"
+msgstr "tempo %d:%05.2f"
+
+#, c-format
+msgid "training %d"
+msgstr "allenamento %d"
 
 #~ msgid "Music number 1"
 #~ msgstr "Musica numero 1"
@@ -997,6 +1001,16 @@ msgstr "allenamento %d, tempo %d"
 #~ msgid "Nearest"
 #~ msgstr "Foresta"
 
-#, fuzzy
-#~ msgid "Previous music"
-#~ msgstr "Partita precedente"
+#~ msgid ""
+#~ "construction %d\n"
+#~ "time %d:%05.2f"
+#~ msgstr ""
+#~ "Costruzione %d\n"
+#~ "tempo %d:%05.2f"
+
+#~ msgid ""
+#~ "training %d\n"
+#~ "time %d:%05.2f"
+#~ msgstr ""
+#~ "allenamento %d\n"
+#~ "tempo %d:%05.2f"
