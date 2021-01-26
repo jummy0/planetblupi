@@ -99,6 +99,10 @@ CButton::Create (
         icon = 50;
       else if (icon == 50) // left arrow
         icon = 51;
+      else if (icon == 111) // right double arrow
+        icon = 110;
+      else if (icon == 110) // left double arrow
+        icon = 111;
       else if (icon == 40) // stop
         icon = 109;
     }

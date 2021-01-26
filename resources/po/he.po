@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-26 02:42-0600\n"
+"POT-Creation-Date: 2021-01-26 15:24-0600\n"
 "PO-Revision-Date: 2019-02-17 14:11+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -782,6 +782,9 @@ msgstr "בלופי חולה"
 msgid "Skill level"
 msgstr "דרגת מיומנות"
 
+msgid "Skip by 10"
+msgstr ""
+
 msgid "Slower"
 msgstr "איטי"
 
@@ -950,7 +953,6 @@ msgid "mission %d"
 msgstr "פעולה %d"
 
 #, c-format
-
 msgid "time %d:%05.2f"
 msgstr "זמן %d:%05.2f"
 

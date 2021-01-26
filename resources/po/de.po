@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-26 02:42-0600\n"
+"POT-Creation-Date: 2021-01-26 15:24-0600\n"
 "PO-Revision-Date: 2017-12-14 23:15+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -793,6 +793,9 @@ msgstr "Kranker Blupi"
 
 msgid "Skill level"
 msgstr "Schwierigkeitsgrad"
+
+msgid "Skip by 10"
+msgstr ""
 
 msgid "Slower"
 msgstr "Langsamer"

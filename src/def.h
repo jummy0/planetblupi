@@ -88,7 +88,7 @@
 #define CHBIGNUMLIGHT   16
 
 #define MAX_PRIVATE_MISSIONS 20
-#define MAXMUSIC        20
+#define MAXMUSIC        37
 
 #define FOGHIDE         4
 // clang-format on

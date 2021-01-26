@@ -92,11 +92,22 @@ else ()
   )
 endif ()
 file (COPY resources/image DESTINATION share/planetblupi)
-if (NOT BUILD_JS)
+if ("${MOVIE}" AND NOT BUILD_JS)
   file (COPY resources/movie DESTINATION share/planetblupi)
 endif ()
 file (COPY resources/sound DESTINATION share/planetblupi)
-file (COPY resources/music DESTINATION share/planetblupi)
+if ("${OGG}")
+  file (
+    COPY resources/music DESTINATION share/planetblupi
+	FILES_MATCHING PATTERN "*.ogg"
+  )
+endif ()
+if ("${MIDI}")
+  file (
+    COPY resources/music DESTINATION share/planetblupi
+	FILES_MATCHING PATTERN "*.mid"
+  )
+endif ()
 file (COPY LICENSE.all DESTINATION share/doc/planetblupi)
 file (COPY COPYING DESTINATION share/doc/planetblupi)
 file (RENAME "${CMAKE_BINARY_DIR}/share/doc/planetblupi/LICENSE.all"
@@ -311,21 +322,21 @@ if (NOT BUILD_JS)
     PATTERN "world*.dev.blp"
   )
   install (DIRECTORY resources/image DESTINATION share/planetblupi)
-  if (MOVIE)
+  if ("${MOVIE}")
     install (DIRECTORY resources/movie DESTINATION share/planetblupi)
   endif ()
   install (DIRECTORY resources/sound DESTINATION share/planetblupi)
-  if (MIDI)
+  if ("${OGG}")
     install (
-      DIRECTORY resources/music DESTINATION share/planetblupi
-      PATTERN "*.mid"
-    )
+	  DIRECTORY resources/music DESTINATION share/planetblupi
+	  FILES_MATCHING PATTERN "*.ogg"
+	)
   endif ()
-  if (OGG)
+  if ("${MIDI}")
     install (
-      DIRECTORY resources/music DESTINATION share/planetblupi
-      PATTERN "*.ogg"
-    )
+	  DIRECTORY resources/music DESTINATION share/planetblupi
+	  FILES_MATCHING PATTERN "*.mid"
+	)
   endif ()
   install (FILES LICENSE.all DESTINATION share/doc/planetblupi RENAME copyright)
   install (FILES COPYING DESTINATION share/doc/planetblupi)

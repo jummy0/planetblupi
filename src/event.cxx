@@ -1313,20 +1313,32 @@ static Phase table[] =
             {
                 EV_BUTTON1,
                 0, {1, 50},
-                11 + 42 * 0, 101,
+                170 + 42 * 1, 60,
                 { translate ("Previous") },
             },
             {
                 EV_BUTTON2,
                 0, {1, 51},
-                11 + 42 * 2, 101,
+				170 + 42 * 3, 60,
                 { translate ("Next") },
             },
 			{
 			    EV_BUTTON3,
 			    0, {1, 40},
-			    11 + 42 * 1, 101,
+				170 + 42 * 2, 60,
 			    { translate ("No music") },
+			},
+			{
+			    EV_BUTTON4,
+			    0, {1, 110},
+				170 + 42 * 0, 60,
+			    { translate ("Skip by 10") },
+			},
+			{
+			    EV_BUTTON5,
+			    0, {1, 111},
+				170 + 42 * 4, 60,
+			    { translate ("Skip by 10") },
 			},
             {
                 EV_PHASE_BUILD,
@@ -2485,7 +2497,7 @@ CEvent::DrawButtons ()
     	x = LXIMAGE () - 179 - GetBignumWidth (m_pDecor->GetMusic ()) / 2;
     else
     	x = 179 - GetBignumWidth (m_pDecor->GetMusic ()) / 2;
-    DrawBignum (m_pPixmap, (Point){x, 41}, m_pDecor->GetMusic (), true);
+    DrawBignum (m_pPixmap, (Point){x, 53}, m_pDecor->GetMusic (), true);
   }
 
   // Dessine les textes pour le choix de la région.
@@ -3699,6 +3711,8 @@ CEvent::ChangePhase (Uint32 phase)
     SetEnable (EV_BUTTON1, music > 0);
     SetEnable (EV_BUTTON2, music < MAXMUSIC);
     SetState (EV_BUTTON3, music == 0 ? 1 : 0);
+    SetEnable (EV_BUTTON4, music > 0);
+    SetEnable (EV_BUTTON5, music < MAXMUSIC);
   }
 
   if (m_phase == EV_PHASE_REGION)
@@ -4364,19 +4378,32 @@ CEvent::ChangeButtons (Sint32 message)
 
   if (m_phase == EV_PHASE_MUSIC)
   {
-	// todo: jump by 5 or 10 when CTRL is pressed
-	if (message == EV_BUTTON1)
+	if (message == EV_BUTTON1) // Previous music
 	{
 	  if (m_pDecor->GetMusic () > 0)
         m_pDecor->SetMusic (m_pDecor->GetMusic() - 1);
     }
-	else if (message == EV_BUTTON2)
+	else if (message == EV_BUTTON2) // Next music
 	{
 	  if (m_pDecor->GetMusic () < MAXMUSIC)
 	    m_pDecor->SetMusic (m_pDecor->GetMusic() + 1);
 	}
-	else if (message == EV_BUTTON3)
+	else if (message == EV_BUTTON3) // No music
 		m_pDecor->SetMusic (0);
+	else if (message == EV_BUTTON4) // Skip backwards by 10
+	{
+	  if (m_pDecor->GetMusic() <= 10)
+	    m_pDecor->SetMusic (0);
+	  else
+	    m_pDecor->SetMusic (m_pDecor->GetMusic() - 10);
+	}
+	else if (message == EV_BUTTON5) // Skip forwards by 10
+	{
+	  if (m_pDecor->GetMusic() >= MAXMUSIC - 10)
+	    m_pDecor->SetMusic (MAXMUSIC);
+	  else
+	    m_pDecor->SetMusic (m_pDecor->GetMusic() + 10);
+	}
 
 	ChangePhase (m_phase);
   }
