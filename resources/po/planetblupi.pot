@@ -434,6 +434,9 @@ msgstr ""
 msgid "Grow tomatoes"
 msgstr ""
 
+msgid "Grow trees"
+msgstr ""
+
 msgid "Eat"
 msgstr ""
 

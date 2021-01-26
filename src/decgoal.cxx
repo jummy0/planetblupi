@@ -1132,6 +1132,69 @@ static Sint16 table_goal_cultive2[] =
     0
 };
 
+// Grow a tree.
+static Sint16 table_goal_growtree[] =
+{
+    EV_ACTION_GROWTREE,
+    GOAL_ENERGY,        MAXENERGY / 4,
+    GOAL_GOHILI2,       +2, 0, false,
+    GOAL_ENERGY,        MAXENERGY / 4,
+    GOAL_ACTION,        ACTION_STOP, DIRECT_E,
+    GOAL_FIX,           -2, 0,
+    GOAL_REPEAT,        true,
+    GOAL_OTHERFIX,      CHFLOOR, 1, 1, 19, 32, EV_ACTION_GROWTREE2,
+    GOAL_TERM,
+    0
+};
+
+static Sint16 table_goal_growtree2[] =
+{
+    EV_ACTION_GROWTREE2,
+    GOAL_ENERGY,        MAXENERGY / 4,
+    GOAL_GOHILI2,       +1, +1, false,
+    GOAL_ENERGY,        MAXENERGY / 4,
+    GOAL_ACTION,        ACTION_STOP, DIRECT_E,
+    GOAL_GROUP,         3,
+    GOAL_INTERRUPT,    0,  // prioritaire
+    GOAL_WORK,         -1, -1,
+    GOAL_BUILDFLOOR,   -1, -1, CHFLOOR, 57, CHMASK1, 0, 16, 6, 1 * 100, // terre
+    GOAL_ACTION,        ACTION_BECHE, DIRECT_E,
+    GOAL_GOBLUPI,       -1, 0, true,
+    GOAL_ACTION,        ACTION_BECHE, DIRECT_E,
+    GOAL_FINISHMOVE,
+
+    GOAL_BUILDOBJECT,   0, -1, CHOBJECT, 4, -1, -1, DIMOBJY, 1, 1 * 100,
+    GOAL_ACTION,        ACTION_ARROSE, DIRECT_E,
+    GOAL_ACTION,        ACTION_ARROSE, DIRECT_E,
+    GOAL_FINISHMOVE,
+
+    GOAL_BUILDOBJECT,   0, -1, CHOBJECT, 0, -1, -1, DIMOBJY, 1, 1 * 100,
+    GOAL_GOBLUPI,       0, -1, true,
+    GOAL_ACTION,        ACTION_ARROSE, DIRECT_E,
+    GOAL_ACTION,        ACTION_ARROSE, DIRECT_E,
+    GOAL_FINISHMOVE,
+
+    GOAL_BUILDOBJECT,   0, 0, CHOBJECT, 30, -1, -1, DIMOBJY, 1, 1 * 100,
+    GOAL_ACTION,        ACTION_BECHE, DIRECT_E,
+    GOAL_ACTION,        ACTION_BECHE, DIRECT_E,
+    GOAL_GOBLUPI,       0, +1, true,
+    GOAL_FINISHMOVE,
+
+    GOAL_BUILDOBJECT,   0, -1, CHOBJECT, 6, -1, -1, DIMOBJY, 1, -1 * 100,
+    GOAL_ACTION,        ACTION_ARROSE, DIRECT_E,
+    GOAL_GOBLUPI,       0, -1, true,
+    GOAL_ACTION,        ACTION_ARROSE, DIRECT_E,
+    GOAL_GOBLUPI,       0, +1, true,
+    GOAL_FINISHMOVE,
+
+    GOAL_BUILDFLOOR,    0, -1, CHFLOOR, 1, CHMASK1, 0, 16, 1, 1 * 100, // grass
+    GOAL_FINISHMOVE,
+
+    GOAL_OTHERFIX,      CHFLOOR, 1, 1, 19, 32, EV_ACTION_GROWTREE2,
+    GOAL_TERM,
+    0
+};
+
 // Bouffe des tomates (est).
 static Sint16 table_goal_mange[] =
 {
@@ -3544,6 +3607,8 @@ static Sint16 *table_pGoal[] =
     table_goal_teleporte10,
     table_goal_teleporte01,
     table_goal_teleporte11,
+	table_goal_growtree,
+	table_goal_growtree2,
     nullptr
 };
 // clang-format on

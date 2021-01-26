@@ -463,6 +463,10 @@ msgstr "Idź"
 msgid "Grow tomatoes"
 msgstr "Sadź pomidory"
 
+#, fuzzy
+msgid "Grow trees"
+msgstr "Sadź pomidory"
+
 msgid "Help"
 msgstr "Pomoc"
 

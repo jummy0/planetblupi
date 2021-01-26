@@ -468,6 +468,10 @@ msgstr "Va"
 msgid "Grow tomatoes"
 msgstr "Coltiva pomodori"
 
+#, fuzzy
+msgid "Grow trees"
+msgstr "Coltiva pomodori"
+
 msgid "Help"
 msgstr "Aiuto"
 

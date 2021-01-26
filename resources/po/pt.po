@@ -453,6 +453,10 @@ msgstr "Ir"
 msgid "Grow tomatoes"
 msgstr "Plantar tomates"
 
+#, fuzzy
+msgid "Grow trees"
+msgstr "Plantar tomates"
+
 msgid "Help"
 msgstr "Ajuda"
 

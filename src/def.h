@@ -348,6 +348,7 @@ enum Buttons {
   BUTTON_REPEAT    = 32,
   BUTTON_DARMOR    = 33,
   BUTTON_MAKEARMOR = 34,
+  BUTTON_GROWTREE  = 35,
   MAXBUTTON        = 40,
 };
 
@@ -508,6 +509,8 @@ enum ShiftDirection {
 #define EV_ACTION_FABARMURE     (EV_OFFSET+128)
 #define EV_ACTION_MARMURE       (EV_OFFSET+129)
 #define EV_ACTION_DARMURE       (EV_OFFSET+130)
+#define EV_ACTION_GROWTREE      (EV_OFFSET+131)
+#define EV_ACTION_GROWTREE2     (EV_OFFSET+132)
 
 #define EV_BUTTON0              (EV_OFFSET+200)
 #define EV_BUTTON1              (EV_OFFSET+201)

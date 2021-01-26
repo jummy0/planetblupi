@@ -463,6 +463,10 @@ msgstr "Git"
 msgid "Grow tomatoes"
 msgstr "Domates yetiştir"
 
+#, fuzzy
+msgid "Grow trees"
+msgstr "Domates yetiştir"
+
 msgid "Help"
 msgstr "Yardım"
 

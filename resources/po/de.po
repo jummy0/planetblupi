@@ -468,6 +468,10 @@ msgstr "Gehen"
 msgid "Grow tomatoes"
 msgstr "Garten anlegen"
 
+#, fuzzy
+msgid "Grow trees"
+msgstr "Garten anlegen"
+
 msgid "Help"
 msgstr "Hilfe"
 

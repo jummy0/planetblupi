@@ -1665,7 +1665,8 @@ CDecor::CelOkForAction (
     action == EV_ACTION_DROP || action == EV_ACTION_LABO ||
     action == EV_ACTION_FABJEEP || action == EV_ACTION_FABARMURE ||
     action == EV_ACTION_FABMINE || action == EV_ACTION_FLOWER1 ||
-    action == EV_ACTION_CULTIVE || action == EV_ACTION_FLAG)
+    action == EV_ACTION_CULTIVE || action == EV_ACTION_GROWTREE ||
+	action == EV_ACTION_FLAG)
   {
     cel.x = (cel.x / 2) * 2;
     cel.y = (cel.y / 2) * 2;
@@ -1723,6 +1724,8 @@ CDecor::CelOkForAction (
         m_blupi[rank].goalAction <= EV_ACTION_ROC7) ||
        m_blupi[rank].goalAction == EV_ACTION_CULTIVE ||
        m_blupi[rank].goalAction == EV_ACTION_CULTIVE2 ||
+	   m_blupi[rank].goalAction == EV_ACTION_GROWTREE ||
+	   m_blupi[rank].goalAction == EV_ACTION_GROWTREE2 ||
        m_blupi[rank].goalAction == EV_ACTION_FLAG ||
        m_blupi[rank].goalAction == EV_ACTION_FLAG2 ||
        m_blupi[rank].goalAction == EV_ACTION_FLAG3 ||
@@ -2267,7 +2270,7 @@ CDecor::CelOkForAction (
     }
   }
 
-  if (action == EV_ACTION_CULTIVE)
+  if (action == EV_ACTION_CULTIVE || action == EV_ACTION_GROWTREE)
   {
     if (!bStrong || bTransport || bVehicule)
     {
@@ -2945,7 +2948,7 @@ CDecor::CelHiliButton (Point cel, Sint32 button)
     button == BUTTON_DARMOR || button == BUTTON_FLAG ||
     button == BUTTON_EXTRAIT || button == BUTTON_FABJEEP ||
     button == BUTTON_MAKEARMOR || button == BUTTON_FABMINE ||
-    button == BUTTON_FABDISC ||
+    button == BUTTON_FABDISC || button == BUTTON_GROWTREE ||
     (button >= BUTTON_BUILD1 && button <= BUTTON_BUILD6))
   {
     m_celHili.x = (cel.x / 2) * 2;
@@ -2989,7 +2992,7 @@ CDecor::CelHiliRepeat (Sint32 list)
     button == BUTTON_DARMOR || button == BUTTON_FLAG ||
     button == BUTTON_EXTRAIT || button == BUTTON_FABJEEP ||
     button == BUTTON_MAKEARMOR || button == BUTTON_FABMINE ||
-    button == BUTTON_FABDISC ||
+    button == BUTTON_FABDISC || button == BUTTON_GROWTREE ||
     (button >= BUTTON_BUILD1 && button <= BUTTON_BUILD6))
   {
     m_iconHili[1][1] = ICON_HILI_OP; // action

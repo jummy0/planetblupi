@@ -463,6 +463,10 @@ msgstr "המשך"
 msgid "Grow tomatoes"
 msgstr "לגדל עגבניות"
 
+#, fuzzy
+msgid "Grow trees"
+msgstr "לגדל עגבניות"
+
 msgid "Help"
 msgstr "עזרה"
 

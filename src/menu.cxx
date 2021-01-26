@@ -73,6 +73,7 @@ static const Sint16 table_button_icon[] = {
   100, // repeat
   107, // qarmure
   106, // fabarmure
+  8,  // growtree
 };
 
 static const char *
@@ -114,6 +115,7 @@ GetText (Sint32 rank)
     translate ("Repeat"),
     translate ("Quit"),
     translate ("Make armour"),
+	translate ("Grow trees"),
   };
 
   return gettext (list[rank]);
