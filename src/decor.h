@@ -329,6 +329,8 @@ public:
   bool   CanBurn (Point cel);
   void   MoveFlush ();
   Sint32 MoveMaxFire ();
+  Sint32 GetFireSpreadDelay ();
+  Sint32 GetFireSkeletonizeLength ();
   void   MoveFixInit ();
   bool   MoveCreate (
       Point cel, Sint32 rankBlupi, bool bFloor, Sint32 channel, Sint32 icon,

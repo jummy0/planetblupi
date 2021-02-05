@@ -75,6 +75,7 @@
 #define GOAL_TELEPORTE      47  // dx,dy
 #define GOAL_ACTUALISE      48  //
 #define GOAL_WAITFREE       49  // dx,dy
+#define GOAL_SKIPSKILLABOVE 50  // skill,d
 // clang-format on
 
 Sint16 *      GetTableGoal (Sint32 action);

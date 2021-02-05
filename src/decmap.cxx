@@ -546,7 +546,7 @@ CDecor::GenerateMap ()
     {
       pos = ConvCelToMap (m_blupi[rank].cel);
 
-      if (this->GetSkill () >= 1 && !m_bBuild)
+      if (this->GetSkill () >= SKILL_HARD && !m_bBuild)
       {
         auto fogCel = m_blupi[rank].cel;
         fogCel.x    = (fogCel.x / 4) * 4;

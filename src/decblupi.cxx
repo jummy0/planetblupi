@@ -2052,6 +2052,17 @@ CDecor::GoalNextOp (Sint32 rank, Sint16 * pTable)
     return true;
   }
 
+  if (op == GOAL_SKIPSKILLABOVE)
+  {
+    i     = (*pTable++);
+    total = (*pTable++);
+    if (m_skill >= i)
+    {
+      m_blupi[rank].goalPhase += total; // saute qq instructions
+    }
+    return true;
+  }
+
   if (op == GOAL_TERM)
   {
   term:
@@ -2682,7 +2693,8 @@ CDecor::BlupiNextAction (Sint32 rank)
   {
     if (m_blupi[rank].energy > 0 && m_blupi[rank].perso == 4)
     {
-      m_blupi[rank].energy -= 3; // le robot se fatigue
+      if (m_skill < SKILL_EXPERT) // robot is not fatigued on Expert
+	m_blupi[rank].energy -= 3; // le robot se fatigue
       if (m_blupi[rank].energy < 1)
         m_blupi[rank].energy = 1;
     }
@@ -2828,6 +2840,11 @@ CDecor::BlupiNextGoal (Sint32 rank)
       if (channel == CHOBJECT && icon == 60) // tomates ?
       {
         PutObject (cel, -1, -1); // plus de tomates
+        BlupiSound (rank, SOUND_S_HIHI, pos);
+      }
+      if (channel == CHOBJECT && icon == 63 && m_skill >= SKILL_EXPERT) // eggs ?
+      {
+        PutObject (cel, -1, -1); // plus de eggs
         BlupiSound (rank, SOUND_S_HIHI, pos);
       }
       if (channel == CHOBJECT && icon == 92) // poison ?
@@ -3286,6 +3303,11 @@ CDecor::BlupiStep (bool bFirst)
     {
       m_bOutline = false; // supprime le mode "outline"
     }
+  }
+
+  if (m_skill >= SKILL_EXPERT)
+  {
+    ClearFog ();
   }
   m_time++; // avance le temps absolu global
 }

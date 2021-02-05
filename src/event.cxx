@@ -270,13 +270,13 @@ static Phase table[] =
                 { translate ("Construct this game") },
             },
             {
-                EV_PHASE_SKILL1,
+                EV_PHASE_SKILLEASY,
                 0, {1, 94},
                 150, 230,
                 { translate ("Skill level") },
             },
             {
-                EV_PHASE_SKILL2,
+                EV_PHASE_SKILLHARD,
                 0, {1, 95},
                 150, 230 + 42,
                 { translate ("Skill level") },
@@ -286,6 +286,12 @@ static Phase table[] =
                 0, {1, 40},
                 42 + 42 * 0, 433,
                 { translate ("Finish") },
+            },
+            {
+                EV_PHASE_SKILLEXPERT,
+                0, {1, 110},
+                150, 230 + 42 * 2,
+                { translate ("Skill level") },
             },
             {
                 0
@@ -2046,20 +2052,27 @@ CEvent::CreateButtons (Sint32 phase)
 
     if (m_bPrivate)
     {
-      if (message == EV_PHASE_SKILL1)
+      if (message == EV_PHASE_SKILLEASY)
       {
         pos.x = 117 + LXOFFSET ();
-        pos.y = 115;
+        pos.y = 85;
         if (isRightReading)
           pos.x = LXIMAGE () - pos.x - DIMBUTTONX;
       }
-      if (message == EV_PHASE_SKILL2)
+      if (message == EV_PHASE_SKILLHARD)
       {
         pos.x = 117 + LXOFFSET ();
-        pos.y = 115 + 42;
+        pos.y = 85 + 42;
         if (isRightReading)
           pos.x = LXIMAGE () - pos.x - DIMBUTTONX;
       }
+      if (message == EV_PHASE_SKILLEXPERT)
+      {
+        pos.x = 117 + LXOFFSET ();
+        pos.y = 85 + 42 * 2;
+        if (isRightReading)
+          pos.x = LXIMAGE () - pos.x - DIMBUTTONX;
+        }
     }
 
     m_buttons[i].Create (
@@ -2526,9 +2539,10 @@ CEvent::DrawButtons ()
     if (m_bSchool)
       pos.x -= 40;
     if (m_bPrivate)
+    {
       pos.x -= 100;
-    if (m_bPrivate)
-      pos.y += 14;
+      pos.y -= 3;
+    }
     if (IsRightReading ())
       pos.x = LXIMAGE () - pos.x;
     DrawText (m_pPixmap, pos, res, FONTSLIM);
@@ -2603,12 +2617,13 @@ CEvent::DrawButtons ()
     if (!m_bSchool)
     {
       std::string text;
-      if (m_pDecor->GetSkill () == 0)
+      switch (m_pDecor->GetSkill ())
       {
+      case 0:
         if (m_bPrivate)
         {
           pos.x = 117 + 50;
-          pos.y = 115 + 13;
+          pos.y = 85 + 13;
         }
         else
         {
@@ -2617,13 +2632,12 @@ CEvent::DrawButtons ()
         }
         pos.x += LXOFFSET ();
         text = gettext ("Easy");
-      }
-      else if (m_pDecor->GetSkill () == 1)
-      {
+        break;
+      case 1:
         if (m_bPrivate)
         {
           pos.x = 117 + 50;
-          pos.y = 115 + 42 + 13;
+          pos.y = 85 + 42 + 13;
         }
         else
         {
@@ -2632,6 +2646,23 @@ CEvent::DrawButtons ()
         }
         pos.x += LXOFFSET ();
         text = gettext ("Difficult");
+        break;
+      case 2:
+        if (m_bPrivate)
+        {
+          pos.x = 117 + 50;
+          pos.y = 85 + 42 * 2 + 13;
+        }
+        else
+        {
+          pos.x = 150 + 50;
+          pos.y = 230 + 42 * 2 + 13;
+        }
+        pos.x += LXOFFSET ();
+        text = gettext ("Expert");
+        break;
+      default:
+        break;
       }
 
       if (IsRightReading ())
@@ -3640,13 +3671,15 @@ CEvent::ChangePhase (Uint32 phase)
 
     if (m_bSchool)
     {
-      SetHide (EV_PHASE_SKILL1, true);
-      SetHide (EV_PHASE_SKILL2, true);
+      SetHide (EV_PHASE_SKILLEASY, true);
+      SetHide (EV_PHASE_SKILLHARD, true);
+      SetHide (EV_PHASE_SKILLEXPERT, true);
     }
     else
     {
-      SetState (EV_PHASE_SKILL1, m_pDecor->GetSkill () == 0 ? 1 : 0);
-      SetState (EV_PHASE_SKILL2, m_pDecor->GetSkill () == 1 ? 1 : 0);
+      SetState (EV_PHASE_SKILLEASY, m_pDecor->GetSkill () == SKILL_EASY ? 1 : 0);
+      SetState (EV_PHASE_SKILLHARD, m_pDecor->GetSkill () == SKILL_HARD ? 1 : 0);
+      SetState (EV_PHASE_SKILLEXPERT, m_pDecor->GetSkill () == SKILL_EXPERT ? 1 : 0);
     }
   }
 
@@ -5959,7 +5992,7 @@ CEvent::TreatEventBase (const SDL_Event & event)
       m_pDecor->FlipOutline ();
       return true;
     case SDLK_PAUSE:
-      if (this->m_pDecor->GetSkill () >= 1)
+      if (this->m_pDecor->GetSkill () >= SKILL_HARD)
         return true;
 
       m_bPause = !m_bPause;
@@ -6293,16 +6326,25 @@ CEvent::TreatEventBase (const SDL_Event & event)
       SetState (EV_DECOR5, 1);
       break;
 
-    case EV_PHASE_SKILL1:
-      m_pDecor->SetSkill (0);
-      SetState (EV_PHASE_SKILL1, true);
-      SetState (EV_PHASE_SKILL2, false);
+    case EV_PHASE_SKILLEASY:
+      m_pDecor->SetSkill (SKILL_EASY);
+      SetState (EV_PHASE_SKILLEASY, true);
+      SetState (EV_PHASE_SKILLHARD, false);
+      SetState (EV_PHASE_SKILLEXPERT, false);
       break;
-    case EV_PHASE_SKILL2:
-      m_pDecor->SetSkill (1);
-      SetState (EV_PHASE_SKILL1, false);
-      SetState (EV_PHASE_SKILL2, true);
+    case EV_PHASE_SKILLHARD:
+      m_pDecor->SetSkill (SKILL_HARD);
+      SetState (EV_PHASE_SKILLEASY, false);
+      SetState (EV_PHASE_SKILLHARD, true);
+      SetState (EV_PHASE_SKILLEXPERT, false);
       break;
+    case EV_PHASE_SKILLEXPERT:
+      m_pDecor->SetSkill (SKILL_EXPERT);
+      SetState (EV_PHASE_SKILLEASY, false);
+      SetState (EV_PHASE_SKILLHARD, false);
+      SetState (EV_PHASE_SKILLEXPERT, true);
+      break;
+
 
     case EV_BUTTON0:
     case EV_BUTTON1:

@@ -839,9 +839,30 @@ CDecor::MoveFlush ()
 Sint32
 CDecor::MoveMaxFire ()
 {
-  if (m_skill >= 1)
+  if (m_skill >= SKILL_EXPERT)
+    return (MAXFIRE / 2);
+  else if (m_skill == SKILL_HARD)
     return (MAXFIRE / 4) * 3;
-  return MAXFIRE;
+  else
+    return MAXFIRE;
+}
+
+Sint32
+CDecor::GetFireSpreadDelay ()
+{
+  if (m_skill < SKILL_EXPERT)
+    return 50;
+  else
+    return 25;
+}
+
+Sint32
+CDecor::GetFireSkeletonizeLength ()
+{
+  if (m_skill < SKILL_EXPERT)
+    return DIMOBJY * 2;
+  else
+    return DIMOBJY;
 }
 
 /**
@@ -1171,9 +1192,8 @@ CDecor::MoveFire (Sint32 rank)
 
   if (m_decor[x / 2][y / 2].objectIcon >= 0) // objet qui brule ?
   {
-    if (
-      m_decor[x / 2][y / 2].fire > MoveMaxFire () / 2 &&
-      m_decor[x / 2][y / 2].fire % 50 == 0) // pas trop souvent !
+    if (m_decor[x / 2][y / 2].fire > MoveMaxFire () / 2 &&
+      m_decor[x / 2][y / 2].fire % GetFireSpreadDelay () == 0) // pas trop souvent !
     {
       MoveProxiFire (GetCel (x, y)); // boutte le feu
     }
@@ -1183,13 +1203,13 @@ CDecor::MoveFire (Sint32 rank)
       MoveStartFire (GetCel (x, y));
 
     // Début grandes flammes.
-    if (m_decor[x / 2][y / 2].fire == (MoveMaxFire () - DIMOBJY * 2) / 2)
+    if (m_decor[x / 2][y / 2].fire == (MoveMaxFire () - GetFireSkeletonizeLength ()) / 2)
     {
       MoveAddIcons (GetCel (x, y), 2, true); // grandes flammes
     }
 
     // Début objet squelette.
-    if (m_decor[x / 2][y / 2].fire == MoveMaxFire () - DIMOBJY * 2)
+    if (m_decor[x / 2][y / 2].fire == MoveMaxFire () - GetFireSkeletonizeLength ())
     {
       icon = m_decor[x / 2][y / 2].floorIcon;
       if (icon == 20) // herbe foncée ?
@@ -1199,24 +1219,27 @@ CDecor::MoveFire (Sint32 rank)
 
       icon    = m_decor[x / 2][y / 2].objectIcon;
       newIcon = -1;
-      if (icon >= 6 && icon <= 11)
-        newIcon = icon - 6 + 30; // arbres ?
-      if (icon == 61)
-        newIcon = 62; // cabane ?
-      if (icon == 113)
-        newIcon = 15; // maison ?
-      if (icon == 121)
-        newIcon = 126; // mine de fer ?
-      if (icon == 122)
-        newIcon = 126; // mine de fer ?
+      if (m_skill < SKILL_EXPERT)
+      {
+        if (icon >= 6 && icon <= 11)
+          newIcon = icon - 6 + 30; // arbres ?
+        if (icon == 61)
+          newIcon = 62; // cabane ?
+        if (icon == 113)
+          newIcon = 15; // maison ?
+        if (icon == 121)
+          newIcon = 126; // mine de fer ?
+        if (icon == 122)
+          newIcon = 126; // mine de fer ?
+      }
       MoveCreate (
-        GetCel (x, y), -1, false, CHOBJECT, newIcon, -1, -1, DIMOBJY * 2, 1,
-        -1 * 50);
+        GetCel (x, y), -1, false, CHOBJECT, newIcon, -1, -1, GetFireSkeletonizeLength (), 1,
+        -12000 / GetFireSkeletonizeLength ());
       MoveAddIcons (GetCel (x, y), 2, true); // grandes flammes
     }
 
     // Fin grandes flammes.
-    if (m_decor[x / 2][y / 2].fire == MoveMaxFire () - DIMOBJY)
+    if (m_decor[x / 2][y / 2].fire == MoveMaxFire () - GetFireSkeletonizeLength () / 2)
     {
       MoveAddIcons (GetCel (x, y), 1, true); // petites flammes
     }
@@ -1231,7 +1254,8 @@ CDecor::MoveFire (Sint32 rank)
         icon == 60 ||               // tomates ?
         icon == 63 ||               // oeufs ?
         icon == 113 ||              // maison ?
-        (icon >= 65 && icon <= 71)) // palissade ?
+        (icon >= 65 && icon <= 71) || // palissade ?
+        m_skill >= SKILL_EXPERT)
       {
         m_decor[x / 2][y / 2].objectChannel = -1;
         m_decor[x / 2][y / 2].objectIcon    = -1;
@@ -1242,8 +1266,8 @@ CDecor::MoveFire (Sint32 rank)
   else // sol qui brule ?
   {
     if (
-      m_decor[x / 2][y / 2].fire > DIMOBJY &&
-      m_decor[x / 2][y / 2].fire % 50 == 0) // pas trop souvent !
+      m_decor[x / 2][y / 2].fire > GetFireSkeletonizeLength () / 2 &&
+      m_decor[x / 2][y / 2].fire % GetFireSpreadDelay () == 0) // pas trop souvent !
     {
       MoveProxiFire (GetCel (x, y)); // boutte le feu
     }
@@ -1253,7 +1277,7 @@ CDecor::MoveFire (Sint32 rank)
       MoveStartFire (GetCel (x, y));
 
     // Milieu feu.
-    if (m_decor[x / 2][y / 2].fire == DIMOBJY)
+    if (m_decor[x / 2][y / 2].fire == GetFireSkeletonizeLength () / 2)
     {
       icon = m_decor[x / 2][y / 2].floorIcon;
       switch (icon)
@@ -1281,7 +1305,7 @@ CDecor::MoveFire (Sint32 rank)
     }
 
     // Fin feu.
-    if (m_decor[x / 2][y / 2].fire == DIMOBJY * 2 - 1)
+    if (m_decor[x / 2][y / 2].fire == GetFireSkeletonizeLength () - 1)
     {
       MoveFinish (GetCel (x, y));
       m_decor[x / 2][y / 2].objectChannel = -1;

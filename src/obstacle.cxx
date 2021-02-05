@@ -2798,7 +2798,8 @@ CDecor::IsSpiderObject (Sint32 icon)
   return (
     icon == 60 || // tomates ?
     icon == 92 || // poison ?
-    icon == 93);  // piège ?
+    icon == 93 || // piège ?
+    (icon == 63 && m_skill >= SKILL_EXPERT)); // eggs ?
 }
 
 // Cherche un autre objet pour l'araignée.
@@ -2977,7 +2978,8 @@ CDecor::IsRobotObject (Sint32 icon)
     icon == 85 ||  // dynamite ?
     icon == 93 ||  // piège ?
     icon == 125 || // mine ?
-    icon == 127);  // mine ?
+    icon == 127 || // mine ?
+    (icon == 63 && m_skill >= SKILL_EXPERT)); // eggs ?
 }
 
 // Cherche une autre action pour le robot.
@@ -3176,9 +3178,9 @@ CDecor::SearchRobotObject (
   {
     index = 0; // station de recharge
   }
-  if (m_skill >= 1)
+  if (m_skill >= SKILL_HARD)
     maxUsine *= 2;     // 2 ennemis par batiment
-  if (min >= maxUsine) // assez peuplé ?
+  if (min >= maxUsine && m_skill < SKILL_EXPERT) // assez peuplé ?
   {
     index = 0; // station de recharge
   }

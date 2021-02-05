@@ -75,6 +75,7 @@ Sint16 table_goal_nbop[] =
     2,      // teleporte
     0,      // actualise
     2,      // waitfree
+    2,      // skipskillabove
 };
 
 // Va, mon petit.
@@ -3205,7 +3206,7 @@ static Sint16 table_goal_e_rayon[] =
     GOAL_ACTION,        ACTION_E_BEGIN, DIRECT_E,
     GOAL_ACTION,        ACTION_E_RAYON, DIRECT_E,
     GOAL_ACTION,        ACTION_E_RAYON, DIRECT_E,
-    GOAL_SKIPSKILL,     1, 7,
+    GOAL_SKIPSKILLABOVE, 1, 8,
     GOAL_ACTION,       ACTION_E_RAYON, DIRECT_E,
     GOAL_ACTION,       ACTION_E_BEGIN, DIRECT_E,
     GOAL_ACTION,       ACTION_E_BEGIN, DIRECT_E,

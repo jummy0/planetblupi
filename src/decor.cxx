@@ -147,7 +147,7 @@ CDecor::CDecor ()
   m_totalTime     = 0;
   m_region        = 0;
   m_lastRegion    = 999;
-  m_skill         = 0;
+  m_skill         = SKILL_EASY;
   m_SurfaceMap    = nullptr;
 
   Init (CHFLOOR, 0);
@@ -3213,33 +3213,40 @@ CDecor::GetResHili (Point posMouse)
 
   if (m_celHili.x != -1)
   {
-    if (m_rankHili != -1) // blupi visé ?
+    if (m_skill >= SKILL_EXPERT && m_decor[m_celHili.x / 2][m_celHili.y / 2].fog == FOGHIDE)
     {
-      switch (m_blupi[m_rankHili].perso)
-      {
-      case 0: // blupi ?
-        if (m_blupi[m_rankHili].energy <= MAXENERGY / 4)
-          return gettext ("Tired Blupi");
-        if (m_blupi[m_rankHili].bMalade)
-          return gettext ("Sick Blupi");
-        return gettext ("Blupi");
-      case 1: // spider ?
-        return gettext ("Spider");
-      case 2: // virus ?
-        return gettext ("Virus");
-      case 3: // tracks ?
-        return gettext ("Bulldozer");
-      case 4: // robot ?
-        return gettext ("Master robot");
-      case 5: // bombe ?
-        return gettext ("Bouncing bomb");
-      case 7: // electro ?
-        return gettext ("Electrocutor");
-      case 8: // disciple ?
-        return gettext ("Helper robot");
-      }
-
       return nullptr;
+    }
+    else
+    {
+      if (m_rankHili != -1) // blupi visé ?
+      {
+        switch (m_blupi[m_rankHili].perso)
+        {
+        case 0: // blupi ?
+          if (m_blupi[m_rankHili].energy <= MAXENERGY / 4)
+            return gettext ("Tired Blupi");
+          if (m_blupi[m_rankHili].bMalade)
+            return gettext ("Sick Blupi");
+          return gettext ("Blupi");
+        case 1: // spider ?
+          return gettext ("Spider");
+        case 2: // virus ?
+          return gettext ("Virus");
+        case 3: // tracks ?
+          return gettext ("Bulldozer");
+        case 4: // robot ?
+          return gettext ("Master robot");
+        case 5: // bombe ?
+          return gettext ("Bouncing bomb");
+        case 7: // electro ?
+          return gettext ("Electrocutor");
+        case 8: // disciple ?
+          return gettext ("Helper robot");
+        }
+
+        return nullptr;
+      }
     }
 
     icon = m_decor[m_celHili.x / 2][m_celHili.y / 2].objectIcon;

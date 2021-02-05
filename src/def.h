@@ -86,6 +86,10 @@
 #define CHBIGNUM        14
 #define CHMASK2         15
 
+#define SKILL_EASY   0
+#define SKILL_HARD   1
+#define SKILL_EXPERT 2
+
 #define MAX_PRIVATE_MISSIONS 20
 
 #define FOGHIDE         4
@@ -605,11 +609,12 @@ enum ShiftDirection {
 #define EV_PHASE_PRIVATE        (EV_OFFSET+530)
 #define EV_PHASE_UNDO           (EV_OFFSET+531)
 #define EV_PHASE_BYE            (EV_OFFSET+532)
-#define EV_PHASE_SKILL1         (EV_OFFSET+533)
-#define EV_PHASE_SKILL2         (EV_OFFSET+534)
+#define EV_PHASE_SKILLEASY         (EV_OFFSET+533)
+#define EV_PHASE_SKILLHARD         (EV_OFFSET+534)
 #define EV_PHASE_DEMO           (EV_OFFSET+535)
 #define EV_PHASE_INTRO1         (EV_OFFSET+536)
 #define EV_PHASE_SETTINGS       (EV_OFFSET+537)
+#define EV_PHASE_SKILLEXPERT         (EV_OFFSET+538)
 
 #define EV_MUSIC_STOP           (EV_OFFSET+550)
 
