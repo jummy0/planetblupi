@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-08 07:29+0200\n"
+"POT-Creation-Date: 2021-02-06 18:46-0600\n"
 "PO-Revision-Date: 2019-02-18 15:22+0100\n"
 "Last-Translator: Mathieu Schroeter <mathieu@schroetersa.ch>\n"
 "Language-Team: \n"
@@ -338,6 +338,10 @@ msgstr "Abbatti degli alberi"
 msgid "Decorative plants"
 msgstr "Piante ornamentali"
 
+#, fuzzy
+msgid "Delete"
+msgstr "Elimina il fuoco"
+
 msgid "Delete figure"
 msgstr "Elimina personaggio"
 
@@ -504,6 +508,9 @@ msgstr "Incubatrice o teletrasporto"
 
 msgid "Inflammable ground"
 msgstr "Terreno infiammabile"
+
+msgid "Input cheat"
+msgstr ""
 
 msgid "Insert CD-Rom Planet Blupi and wait a few seconds..."
 msgstr "Inserire il CD-Rom Planet Blupi e attendere qualche secondo ..."

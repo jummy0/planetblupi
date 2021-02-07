@@ -335,6 +335,12 @@ CDecor::EnableFog (bool bEnable)
   m_bOutline = false;
 }
 
+bool
+CDecor::GetFogEnabled ()
+{
+  return m_bFog;
+}
+
 // Gestion du mode invincible.
 
 bool

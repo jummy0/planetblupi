@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-17 14:11+0100\n"
+"POT-Creation-Date: 2021-02-06 23:34-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -557,6 +557,9 @@ msgstr ""
 msgid "Enable anti-aliasing"
 msgstr ""
 
+msgid "Delete"
+msgstr ""
+
 msgid "Version"
 msgstr ""
 
@@ -815,6 +818,9 @@ msgid "http://www.blupi.org            info@blupi.org"
 msgstr ""
 
 msgid "Insert CD-Rom Planet Blupi and wait a few seconds..."
+msgstr ""
+
+msgid "Input cheat"
 msgstr ""
 
 msgid "Blupi's energy"

@@ -401,6 +401,7 @@ public:
   void ClearFire ();
   void SetBuild (bool bBuild);
   void EnableFog (bool bEnable);
+  bool GetFogEnabled ();
   bool GetInvincible ();
   void SetInvincible (bool bInvincible);
   bool GetSuper ();

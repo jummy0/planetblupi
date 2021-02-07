@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-08 07:29+0200\n"
+"POT-Creation-Date: 2021-02-06 18:46-0600\n"
 "PO-Revision-Date: 2019-02-17 23:21+0100\n"
 "Last-Translator: Mathieu Schroeter <mathieu@schroetersa.ch>\n"
 "Language-Team: French <kde-i18n-doc@kde.org>\n"
@@ -336,6 +336,10 @@ msgstr "Abat des arbres"
 msgid "Decorative plants"
 msgstr "Plantes ornementales"
 
+#, fuzzy
+msgid "Delete"
+msgstr "Supprime feu"
+
 msgid "Delete figure"
 msgstr "Supprime personnage"
 
@@ -499,6 +503,9 @@ msgstr "Couveuse ou téléporteur"
 
 msgid "Inflammable ground"
 msgstr "Sol inflammable"
+
+msgid "Input cheat"
+msgstr ""
 
 msgid "Insert CD-Rom Planet Blupi and wait a few seconds..."
 msgstr ""

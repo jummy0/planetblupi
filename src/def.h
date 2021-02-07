@@ -89,6 +89,8 @@
 #define MAX_PRIVATE_MISSIONS 20
 
 #define FOGHIDE         4
+
+#define CHEAT_LENGTH    20
 // clang-format on
 
 // Directions :
@@ -610,6 +612,8 @@ enum ShiftDirection {
 #define EV_PHASE_DEMO           (EV_OFFSET+535)
 #define EV_PHASE_INTRO1         (EV_OFFSET+536)
 #define EV_PHASE_SETTINGS       (EV_OFFSET+537)
+
+#define EV_PHASE_CHEAT          (EV_OFFSET+539)
 
 #define EV_MUSIC_STOP           (EV_OFFSET+550)
 

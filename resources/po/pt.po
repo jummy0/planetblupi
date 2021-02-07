@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-25 23:40+0100\n"
+"POT-Creation-Date: 2021-02-06 18:46-0600\n"
 "PO-Revision-Date: 2019-02-17 23:23+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -328,6 +328,10 @@ msgstr "Cortar Plantas"
 msgid "Decorative plants"
 msgstr "Planta decorativa"
 
+#, fuzzy
+msgid "Delete"
+msgstr "Apagar fogo"
+
 msgid "Delete figure"
 msgstr "Apagar figura"
 
@@ -489,6 +493,9 @@ msgstr "Incubadora ou teletransportador"
 
 msgid "Inflammable ground"
 msgstr "Terreno inflamavel"
+
+msgid "Input cheat"
+msgstr ""
 
 msgid "Insert CD-Rom Planet Blupi and wait a few seconds..."
 msgstr "Insira o CD-Rom Planet Blupi e aguarde alguns segundos..."
@@ -829,7 +836,8 @@ msgstr "Pegar"
 msgid "Teleporter"
 msgstr "Teletransportador"
 
-msgid "This game is an original creation of Epsitec SA, CH-1400 Yverdon-les-Bains"
+msgid ""
+"This game is an original creation of Epsitec SA, CH-1400 Yverdon-les-Bains"
 msgstr ""
 
 msgid "This game uses statically linked free and open-source libraries:"

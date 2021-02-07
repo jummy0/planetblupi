@@ -52,6 +52,7 @@
 #define DEF_TIME_HELP 10000 // ~10 minutes
 #define DEF_TIME_DEMO 1000  // ~1 minute
 #define MAXDEMO 2000
+#define MAXCHEAT 9
 
 typedef struct {
   // v1.0
@@ -84,7 +85,7 @@ typedef struct {
 // Toutes les premières lettres doivent
 // être différentes !
 
-static char cheat_code[9][20] = {
+static char cheat_code[MAXCHEAT][CHEAT_LENGTH] = {
   "vision",      // 0
   "power",       // 1
   "lonesome",    // 2
@@ -1603,6 +1604,192 @@ static Phase table[] =
     },
 
     {
+        EV_PHASE_CHEAT,
+        "info000.png",
+        "back-book.png",
+        CPixmap::Mode::FIX,
+        false,
+        {
+            {
+                EV_BUTTON1, // A
+                0, {0},
+                84 + 42 * 0, 84 + 42 * 0,
+                { },
+            },
+            {
+                EV_BUTTON2, // B
+                0, {0},
+                84 + 42 * 1, 84 + 42 * 0,
+                { },
+            },
+            {
+                EV_BUTTON3, // C
+                0, {0},
+                84 + 42 * 2, 84 + 42 * 0,
+                { },
+            },
+            {
+                EV_BUTTON4, // D
+                0, {0},
+                84 + 42 * 3, 84 + 42 * 0,
+                { },
+            },
+          {
+                EV_BUTTON5, // E
+                0, {0},
+                84 + 42 * 4, 84 + 42 * 0,
+                { },
+            },
+          {
+                EV_BUTTON6, // F
+                0, {0},
+                84 + 42 * 0, 84 + 42 * 1,
+                { },
+            },
+          {
+                EV_BUTTON7, // G
+                0, {0},
+                84 + 42 * 1, 84 + 42 * 1,
+                { },
+            },
+          {
+                EV_BUTTON8, // H
+                0, {0},
+                84 + 42 * 2, 84 + 42 * 1,
+                { },
+            },
+          {
+                EV_BUTTON9, // I
+                0, {0},
+                84 + 42 * 3, 84 + 42 * 1,
+                { },
+            },
+          {
+                EV_BUTTON10, // J
+                0, {0},
+                84 + 42 * 4, 84 + 42 * 1,
+                { },
+            },
+          {
+                EV_BUTTON11, // K
+                0, {0},
+                84 + 42 * 0, 84 + 42 * 2,
+                { },
+            },
+          {
+                EV_BUTTON12, // L
+                0, {0},
+                84 + 42 * 1, 84 + 42 * 2,
+                { },
+            },
+          {
+                EV_BUTTON13, // M
+                0, {0},
+                84 + 42 * 2, 84 + 42 * 2,
+                { },
+            },
+          {
+                EV_BUTTON14, // N
+                0, {0},
+                84 + 42 * 3, 84 + 42 * 2,
+                { },
+            },
+          {
+                EV_BUTTON15, // O
+                0, {0},
+                84 + 42 * 4, 84 + 42 * 2,
+                { },
+            },
+          {
+                EV_BUTTON16, // P
+                0, {0},
+                84 + 42 * 0, 84 + 42 * 3,
+                { },
+            },
+          {
+                EV_BUTTON17, // Q
+                0, {0},
+                84 + 42 * 1, 84 + 42 * 3,
+                { },
+            },
+          {
+                EV_BUTTON18, // R
+                0, {0},
+                84 + 42 * 2, 84 + 42 * 3,
+                { },
+            },
+          {
+                EV_BUTTON19, // S
+                0, {0},
+                84 + 42 * 3, 84 + 42 * 3,
+                { },
+            },
+          {
+                EV_BUTTON20, // T
+                0, {0},
+                84 + 42 * 4, 84 + 42 * 3,
+                { },
+            },
+          {
+                EV_BUTTON21, // U
+                0, {0},
+                84 + 42 * 0, 84 + 42 * 4,
+                { },
+            },
+          {
+                EV_BUTTON22, // V
+                0, {0},
+                84 + 42 * 1, 84 + 42 * 4,
+                { },
+            },
+          {
+                EV_BUTTON23, // W
+                0, {0},
+                84 + 42 * 2, 84 + 42 * 4,
+                { },
+            },
+          {
+                EV_BUTTON24, // X
+                0, {0},
+                84 + 42 * 3, 84 + 42 * 4,
+                { },
+            },
+          {
+                EV_BUTTON25, // Y
+                0, {0},
+                84 + 42 * 4, 84 + 42 * 4,
+                { },
+            },
+          {
+                EV_BUTTON26, // Z
+                0, {0},
+                84 + 42 * 0, 84 + 42 * 5,
+                { },
+            },
+          {
+                EV_BUTTON27, // erase
+                0, {1, 36},
+                84 + 42 * 2, 84 + 42 * 5,
+                { translate ("Delete") },
+            },
+            {
+                EV_PHASE_PLAY,
+                0, {1, 40},
+                84 + 42 * 0, 433,
+                { translate ("Finish") },
+            },
+            {
+                EV_BUTTON28, // OK
+                0, {1, 51},
+                84 + 42 * 4, 84 + 42 * 5,
+            },
+            {
+                0
+            },
+        },
+    },
+
+    {
         0
     }
 };
@@ -1665,6 +1852,7 @@ CEvent::CEvent ()
   m_demoEnd         = 0;
   m_bHiliInfoButton = false;
   m_bHiliHelpButton = false;
+  m_onScreenCheat   = "";
 
   memset (m_textToolTips, 0, sizeof (m_textToolTips));
   memset (m_libelle, 0, sizeof (m_libelle));
@@ -2129,6 +2317,9 @@ CEvent::DrawButtons ()
      m_phase != EV_PHASE_INTRO1 && m_phase != EV_PHASE_BYE))
   {
     text[0] = 0;
+    if (!m_pDecor->GetFogEnabled () &&
+        (m_phase == EV_PHASE_PLAY || m_phase == EV_PHASE_CHEAT))
+      AddCheatCode (text, cheat_code[0]);
     if (m_bAllMissions)
       AddCheatCode (text, cheat_code[3]);
     if (m_bSpeed)
@@ -2139,6 +2330,8 @@ CEvent::DrawButtons ()
       AddCheatCode (text, cheat_code[6]);
     if (m_pDecor->GetSuper ())
       AddCheatCode (text, cheat_code[7]);
+    if (m_bAccessBuild)
+      AddCheatCode (text, cheat_code[8]);
 
     if (text[0])
     {
@@ -2924,6 +3117,24 @@ CEvent::DrawButtons ()
   if (m_phase == EV_PHASE_BUILD)
     SetEnable (EV_PHASE_UNDO, m_pDecor->IsUndo ());
 
+  if (m_phase == EV_PHASE_CHEAT)
+  {
+    DrawTextCenter (
+      gettext ("Input cheat"),
+      LXIMAGE () / 2, 50);
+
+    DrawTextCenter (
+      m_onScreenCheat.c_str(),
+      LXIMAGE () / 2, 70);
+
+    for (int i = 0; i < 26; i++)
+    {
+      DrawTextCenter (
+        string_format ("%c", (char)(i + 'A')).c_str(),
+        LXOFFSET () + 84 + 42 * (i % 5) + 21,
+        84 + 42 * (i / 5) + 13);
+    }
+  }
   // Draw the tooltips.
   if (m_textToolTips[0] != 0)
     DrawText (m_pPixmap, m_posToolTips, m_textToolTips);
@@ -3427,7 +3638,7 @@ CEvent::ChangePhase (Uint32 phase)
 
   if (
     phase != EV_PHASE_SETUPp && phase != EV_PHASE_WRITEp &&
-    phase != EV_PHASE_PLAY)
+    phase != EV_PHASE_PLAY && phase != EV_PHASE_CHEAT)
     m_pSound->StopMusic ();
   if (phase == EV_PHASE_SETUPp && m_bPause)
     m_pSound->StopMusic ();
@@ -3482,6 +3693,9 @@ CEvent::ChangePhase (Uint32 phase)
     static const std::set<Sint32> except = {SOUND_WIN, SOUND_LOST};
     m_pSound->StopAllSounds (false, &except);
   }
+
+  if (phase == EV_PHASE_PLAY && m_phase != EV_PHASE_CHEAT)
+    m_pDecor->EnableFog (true);
 
   m_phase = phase; // change phase
   m_index = index;
@@ -3583,7 +3797,6 @@ CEvent::ChangePhase (Uint32 phase)
   {
     m_pDecor->LoadImages ();
     m_pDecor->SetBuild (false);
-    m_pDecor->EnableFog (true);
     m_pDecor->NextPhase (0); // rebuild the map immediatly
     m_pDecor->StatisticInit ();
     m_pDecor->TerminatedInit ();
@@ -4514,6 +4727,34 @@ CEvent::ChangeButtons (Sint32 message)
       g_renderQuality = true;
       this->m_pPixmap->CreateMainTexture ();
       break;
+    }
+  }
+
+  if (m_phase == EV_PHASE_CHEAT)
+  {
+    if (message >= EV_BUTTON1 && message <= EV_BUTTON26)
+    {
+      if (m_onScreenCheat.length() < CHEAT_LENGTH)
+        m_onScreenCheat += message - EV_BUTTON1 + 'a';
+      else
+        m_pSound->PlayImage (SOUND_JUMP, {LXIMAGE() / 2, 0});
+    }
+    else if (message == EV_BUTTON27) // erase
+    {
+      if (m_onScreenCheat.length() > 0)
+        m_onScreenCheat.pop_back();
+    }
+    else if (message == EV_BUTTON28) // OK
+    {
+      for (int i = 0; i < MAXCHEAT; i++)
+      {
+        if (strcmp(cheat_code[i], m_onScreenCheat.c_str()) == 0)
+        {
+          HandleCheat(i);
+          break;
+        }
+      }
+      m_onScreenCheat = "";
     }
   }
 }
@@ -5690,7 +5931,6 @@ CEvent::TreatEventBase (const SDL_Event & event)
   Sint32 i;
   Sounds sound;
   char   c;
-  bool   bEnable;
 
   DemoRecEvent (event);
 
@@ -5702,7 +5942,7 @@ CEvent::TreatEventBase (const SDL_Event & event)
       if (m_posCheat == 0) // première lettre ?
       {
         m_rankCheat = -1;
-        for (i = 0; i < 9; i++)
+        for (i = 0; i < MAXCHEAT; i++)
         {
           if ((char) event.key.keysym.sym == cheat_code[i][0])
           {
@@ -5721,66 +5961,13 @@ CEvent::TreatEventBase (const SDL_Event & event)
           m_posCheat++;
           if (cheat_code[m_rankCheat][m_posCheat] == 0)
           {
-            bEnable = true;
-            if (m_phase == EV_PHASE_PLAY)
-            {
-              if (m_rankCheat == 0) // vision ?
-                m_pDecor->EnableFog (false);
-              else if (
-                m_rankCheat == 1 || // power ?
-                m_rankCheat == 2)   // lonesome ?
-                m_pDecor->BlupiCheat (m_rankCheat);
-            }
-
-            switch (m_rankCheat)
-            {
-            case 3: // allmissions ?
-            {
-              m_bAllMissions = !m_bAllMissions;
-              bEnable        = m_bAllMissions;
-              break;
-            }
-            case 4: // quick ?
-            {
-              m_bSpeed = !m_bSpeed;
-              bEnable  = m_bSpeed;
-              break;
-            }
-            case 5: // helpme ?
-            {
-              m_bHelp = !m_bHelp;
-              bEnable = m_bHelp;
-              break;
-            }
-            case 6: // invincible ?
-            {
-              m_pDecor->SetInvincible (!m_pDecor->GetInvincible ());
-              bEnable = m_pDecor->GetInvincible ();
-              break;
-            }
-            case 7: // superblupi ?
-            {
-              m_pDecor->SetSuper (!m_pDecor->GetSuper ());
-              bEnable = m_pDecor->GetSuper ();
-              break;
-            }
-            case 8: // construire ?
-            {
-              m_bAccessBuild = !m_bAccessBuild;
-              bEnable        = m_bAccessBuild;
-              break;
-            }
-            }
+            HandleCheat (m_rankCheat);
 
             if (m_phase != EV_PHASE_PLAY)
               ChangePhase (m_phase);
 
             pos.x = LXIMAGE () / 2;
             pos.y = LYIMAGE () / 2;
-            if (bEnable)
-              m_pSound->PlayImage (SOUND_GOAL, pos);
-            else
-              m_pSound->PlayImage (SOUND_BOING, pos);
 
             m_rankCheat = -1;
             m_posCheat  = 0;
@@ -6031,6 +6218,10 @@ CEvent::TreatEventBase (const SDL_Event & event)
     case SDLK_F12:
       if (m_phase == EV_PHASE_PLAY)
         m_pDecor->MemoPos (3, !!(m_keymod & KMOD_CTRL));
+      return true;
+    case SDLK_INSERT:
+      if (m_phase == EV_PHASE_PLAY)
+        ChangePhase(EV_PHASE_CHEAT);
       return true;
     }
     break;
@@ -6425,4 +6616,52 @@ CEvent::PushUserEvent (Sint32 code, void * data)
   event.user.data2 = nullptr;
 
   SDL_PushEvent (&event);
+}
+
+void
+CEvent::HandleCheat (Sint16 index)
+{
+  bool bEnable = true;
+  switch (index)
+  {
+  case 0:// vision ?
+    m_pDecor->EnableFog (!m_pDecor->GetFogEnabled());
+    bEnable            = !m_pDecor->GetFogEnabled();
+    break;
+  case 1: // power ?
+  case 2: // lonesome ?
+    m_pDecor->BlupiCheat (index);
+    break;
+  case 3: // allmissions ?
+    m_bAllMissions = !m_bAllMissions;
+    bEnable        = m_bAllMissions;
+    break;
+  case 4: // quick ?
+    m_bSpeed = !m_bSpeed;
+    bEnable  = m_bSpeed;
+    break;
+  case 5: // helpme ?
+    m_bHelp = !m_bHelp;
+    bEnable = m_bHelp;
+    break;
+  case 6: // invincible ?
+    m_pDecor->SetInvincible (!m_pDecor->GetInvincible ());
+    bEnable = m_pDecor->GetInvincible ();
+    break;
+  case 7: // superblupi ?
+    m_pDecor->SetSuper (!m_pDecor->GetSuper ());
+    bEnable = m_pDecor->GetSuper ();
+    break;
+  case 8: // construire ?
+    m_bAccessBuild = !m_bAccessBuild;
+    bEnable        = m_bAccessBuild;
+    break;
+  }
+
+  if (bEnable)
+    m_pSound->PlayImage (SOUND_GOAL, {LXIMAGE () / 2, 0});
+  else
+    m_pSound->PlayImage (SOUND_BOING, {LXIMAGE () / 2, 0});
+
+  return;
 }

@@ -195,6 +195,8 @@ protected:
        WinToSDLEvent (Uint32 msg, WParam wParam, LParam lParam, SDL_Event & event);
   void DemoRecEvent (const SDL_Event & event);
 
+  void HandleCheat (Sint16 index);
+
 protected:
   std::vector<Language>                    m_Languages;
   std::vector<Language>::iterator          m_Lang;
@@ -279,6 +281,7 @@ protected:
   std::string                              m_updateVersion;
   Uint32                                   shiftDirection;
   bool                                     statDisabled;
+  std::string                              m_onScreenCheat;
 };
 
 /////////////////////////////////////////////////////////////////////////////
