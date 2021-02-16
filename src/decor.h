@@ -29,6 +29,15 @@
 #define MAXFIRE 400
 
 // clang-format off
+#ifdef TOPVIEW
+#define ICON_HILI_STAT  0
+#define ICON_HILI_SEL   1
+#define ICON_HILI_ANY   2
+#define ICON_HILI_OP    3
+#define ICON_HILI_GO    5
+#define ICON_HILI_BUILD 6
+#define ICON_HILI_ERR   7
+#else
 #define ICON_HILI_STAT  112
 #define ICON_HILI_SEL   113
 #define ICON_HILI_ANY   114
@@ -36,6 +45,7 @@
 #define ICON_HILI_GO    117
 #define ICON_HILI_BUILD 118
 #define ICON_HILI_ERR   119
+#endif
 // clang-format on
 
 // Descripteur d'une cellule du décor.

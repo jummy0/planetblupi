@@ -1205,7 +1205,11 @@ CDecor::Build (Rect clip, Point posMouse)
         if (icon != -1)
         {
           // hilight cellule
+#ifdef TOPVIEW
+          m_pPixmap->DrawIcon (-1, CHBLUPIMARK, icon, cPos);
+#else
           m_pPixmap->DrawIconDemi (-1, CHBLUPI, icon, cPos);
+#endif
         }
       }
 
@@ -1214,7 +1218,11 @@ CDecor::Build (Rect clip, Point posMouse)
         if (
           (m_p1Hili.x == x && m_p1Hili.y == y) ||
           (m_p2Hili.x == x && m_p2Hili.y == y))
+#ifdef TOPVIEW
+          m_pPixmap->DrawIcon (-1, CHBLUPIMARK, ICON_HILI_SEL, cPos);
+#else
           m_pPixmap->DrawIconDemi (-1, CHBLUPI, ICON_HILI_SEL, cPos);
+#endif
       }
 
       x++;
@@ -1284,7 +1292,46 @@ CDecor::Build (Rect clip, Point posMouse)
           pos   = ConvCelToPos (cel);
           pos.x += m_blupi[rank].pos.x;
           pos.y += m_blupi[rank].pos.y - (DIMBLUPIY - DIMCELY) - SHIFTBLUPIY;
+#ifdef TOPVIEW
+          if (m_blupi[rank].bHili)
+          {
 
+            icon = 8 + (m_blupi[rank].energy * 18) / MAXENERGY;
+            if (icon < 8)
+              icon = 8;
+            if (icon > 25)
+              icon = 25;
+            tPos = pos;
+            // Dessine la sélection/énergie
+            if (m_blupi[rank].clipLeft == 0)
+              m_pPixmap->DrawIcon (-1, CHBLUPIMARK, icon, tPos);
+            else
+            {
+              clipRect      = clip;
+              clipRect.left = m_blupi[rank].clipLeft;
+              m_pPixmap->SetClipping (clipRect);
+              m_pPixmap->DrawIcon (-1, CHBLUPIMARK, icon, tPos);
+              m_pPixmap->SetClipping (clip);
+            }
+          }
+
+          // Dessine la flèche ronde "répète" sous blupi.
+          if (m_blupi[rank].repeatLevel != -1)
+          {
+            tPos = pos;
+            // Dessine la sélection/énergie
+            if (m_blupi[rank].clipLeft == 0)
+              m_pPixmap->DrawIcon (-1, CHBLUPIMARK, 4, tPos);
+            else
+            {
+              clipRect      = clip;
+              clipRect.left = m_blupi[rank].clipLeft;
+              m_pPixmap->SetClipping (clipRect);
+              m_pPixmap->DrawIcon (-1, CHBLUPIMARK, 4, tPos);
+              m_pPixmap->SetClipping (clip);
+            }
+          }
+#else
           if (m_blupi[rank].bHili)
           {
             icon = 120 + (m_blupi[rank].energy * 18) / MAXENERGY;
@@ -1328,6 +1375,7 @@ CDecor::Build (Rect clip, Point posMouse)
               m_pPixmap->SetClipping (clip);
             }
           }
+#endif
 
           // Dessine la flèche jaune sur blupi.
           if (m_blupi[rank].bArrow)

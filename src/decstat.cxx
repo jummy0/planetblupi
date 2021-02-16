@@ -728,7 +728,11 @@ CDecor::StatisticDraw ()
 
     if (rank == m_statHili) // statistique survolée ?
     {
+#ifdef TOPVIEW
+      m_pPixmap->DrawIconDemi (-1, CHBLUPIMARK, ICON_HILI_STAT, pos);
+#else
       m_pPixmap->DrawIconDemi (-1, CHBLUPI, ICON_HILI_STAT, pos);
+#endif
       textRes = gettext (pStatistic->text);
     }
 

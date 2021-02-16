@@ -27,10 +27,11 @@
 
 // clang-format off
 #define _INTRO          true    // true for init screen
+#define TOPVIEW         true
 
 #define DIMDRAWX        (LXIMAGE () - (LXLOGIC () - LYLOGIC ()))
 #define DIMDRAWY        450
-#define POSDRAWX_		144
+#define POSDRAWX_       144
 #define POSDRAWX        (IsRightReading () ? LXIMAGE () - POSDRAWX_ - DIMDRAWX : POSDRAWX_)     // draw surface
 #define POSDRAWY        15
 
@@ -43,14 +44,24 @@
 #define MAXCELY         200
 
 #define DIMCELX         60      // cell size (decor)
+
+#ifdef TOPVIEW
+#define DIMCELY         60
+#else
 #define DIMCELY         30
+#endif
 
 #define DIMOBJX         120     // object size
 #define DIMOBJY         120
 
 #define DIMBLUPIX       60      // Blupi size
 #define DIMBLUPIY       60
+
+#ifdef TOPVIEW
+#define SHIFTBLUPIY     0
+#else
 #define SHIFTBLUPIY     5       // shift on top
+#endif
 
 #define DIMBUTTONX      40      // button size
 #define DIMBUTTONY      40
@@ -85,6 +96,7 @@
 #define CHTEXT          13
 #define CHBIGNUM        14
 #define CHMASK2         15
+#define CHBLUPIMARK     16
 
 #define MAX_PRIVATE_MISSIONS 20
 

@@ -379,11 +379,19 @@ HandleEvent (const SDL_Event & event)
 
       if (!g_bFullScreen && g_bTermInit)
       {
+#ifdef TOPVIEW
+        totalDim.x = 64;
+        totalDim.y = 126;
+        iconDim.x  = 64;
+        iconDim.y  = 126 / 2;
+        g_pPixmap->Cache (CHHILI, "hili-top.png", totalDim, iconDim);
+#else
         totalDim.x = 64;
         totalDim.y = 66;
         iconDim.x  = 64;
         iconDim.y  = 66 / 2;
         g_pPixmap->Cache (CHHILI, "hili.png", totalDim, iconDim);
+#endif
       }
       SDL_SetWindowTitle (g_window, gettext ("Planet Blupi"));
       if (g_pSound != nullptr)
@@ -906,6 +914,93 @@ DoInit (int argc, char * argv[], bool & exit)
   g_pPixmap->DrawImage (-1, CHBACK, rcRect); // dessine le fond
   g_pPixmap->Display ();
 
+#ifdef TOPVIEW
+  totalDim.x = DIMCELX * 2 * 16;
+  totalDim.y = DIMCELY * 2 * 6;
+  iconDim.x  = DIMCELX * 2;
+  iconDim.y  = DIMCELY * 2;
+  if (!g_pPixmap->Cache (CHFLOOR, "floor000-top.png", totalDim, iconDim))
+  {
+    InitFail ("Cache floor000-top.png");
+    return EXIT_FAILURE;
+  }
+
+  totalDim.x = DIMOBJX * 16;
+  totalDim.y = DIMOBJY * 8;
+  iconDim.x  = DIMOBJX;
+  iconDim.y  = DIMOBJY;
+  if (!g_pPixmap->Cache (CHOBJECT, "obj000-top.png", totalDim, iconDim))
+  {
+    InitFail ("Cache obj000-top.png");
+    return EXIT_FAILURE;
+  }
+
+  if (!g_pPixmap->Cache (CHOBJECTo, "obj-o000-top.png", totalDim, iconDim))
+  {
+    InitFail ("Cache obj-o000-top.png");
+    return EXIT_FAILURE;
+  }
+
+  totalDim.x = DIMBLUPIX * 16;
+  totalDim.y = DIMBLUPIY * 23;
+  iconDim.x  = DIMBLUPIX;
+  iconDim.y  = DIMBLUPIY;
+  if (!g_pPixmap->Cache (CHBLUPI, "blupi-top.png", totalDim, iconDim))
+  {
+    InitFail ("Cache blupi-top.png");
+    return EXIT_FAILURE;
+  }
+
+  totalDim.x = DIMBLUPIX * 16;
+  totalDim.y = DIMBLUPIY * 2;
+  iconDim.x  = DIMBLUPIX;
+  iconDim.y  = DIMBLUPIY;
+  if (!g_pPixmap->Cache (CHBLUPIMARK, "blupi-mark-top.png", totalDim, iconDim))
+  {
+    InitFail ("Cache blupi-mark-top.png");
+    return EXIT_FAILURE;
+  }
+
+  totalDim.x = 64;
+  totalDim.y = 126;
+  iconDim.x  = 64;
+  iconDim.y  = 63;
+  if (!g_pPixmap->Cache (CHHILI, "hili-top.png", totalDim, iconDim))
+  {
+    InitFail ("Cache hili-top.png");
+    return EXIT_FAILURE;
+  }
+
+  totalDim.x = DIMCELX * 2 * 3;
+  totalDim.y = DIMCELY * 2 * 5;
+  iconDim.x  = DIMCELX * 2;
+  iconDim.y  = DIMCELY * 2;
+  if (!g_pPixmap->Cache (CHFOG, "fog-top.png", totalDim, iconDim))
+  {
+    InitFail ("Cache fog-top.png");
+    return EXIT_FAILURE;
+  }
+
+  totalDim.x = DIMCELX * 2 * 16;
+  totalDim.y = DIMCELY * 2 * 1;
+  iconDim.x  = DIMCELX * 2;
+  iconDim.y  = DIMCELY * 2;
+  if (!g_pPixmap->Cache (CHMASK1, "mask1-top.png", totalDim, iconDim))
+  {
+    InitFail ("Cache mask1-top.png");
+    return EXIT_FAILURE;
+  }
+
+  totalDim.x = DIMCELX * 2 * 16;
+  totalDim.y = DIMCELY * 2 * 1;
+  iconDim.x  = DIMCELX * 2;
+  iconDim.y  = DIMCELY * 2;
+  if (!g_pPixmap->Cache (CHMASK2, "mask2-top.png", totalDim, iconDim))
+  {
+    InitFail ("Cache mask2-top.png");
+    return EXIT_FAILURE;
+  }
+#else
   totalDim.x = DIMCELX * 2 * 16;
   totalDim.y = DIMCELY * 2 * 6;
   iconDim.x  = DIMCELX * 2;
@@ -981,6 +1076,7 @@ DoInit (int argc, char * argv[], bool & exit)
     InitFail ("Cache mask2.png");
     return EXIT_FAILURE;
   }
+#endif
 
   totalDim.x = DIMBUTTONX * 6;
   totalDim.y = DIMBUTTONY * 21;

@@ -2766,8 +2766,12 @@ Action (
       for (i = 0; i < phase; i++)
       {
         pos.x += pTable->moves[direct / 16][2 + (i % nbMove) * 3 + 0];
+#ifdef TOPVIEW
+        pos.y += pTable->moves[direct / 16][2 + (i % nbMove) * 3 + 1] * 2;
+#else
         pos.y += pTable->moves[direct / 16][2 + (i % nbMove) * 3 + 1];
         posZ += pTable->moves[direct / 16][2 + (i % nbMove) * 3 + 2];
+#endif
       }
 
       pos.x /= 100;

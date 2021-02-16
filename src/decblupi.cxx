@@ -3641,100 +3641,100 @@ CDecor::BlupiDrawHili ()
   p3.x += DIMCELX / 2;
   p4.x += DIMCELX / 2;
 
-  shift = m_shiftHili % (64 / 2);
+  shift = m_shiftHili % ((DIMCELX + 4) / (DIMCELX / DIMCELY));
 
-  start.x = p1.x - shift * 2;
+  start.x = p1.x - shift * (DIMCELX / DIMCELY);
   start.y = p1.y - shift - 1;
   while (start.x < p4.x)
   {
     pos         = start;
     rect.left   = 0;
-    rect.right  = 64;
+    rect.right  = (DIMCELX + 4);
     rect.top    = 0;
-    rect.bottom = 66 / 2;
+    rect.bottom = (DIMCELY + 3);
     if (pos.x + rect.right > p4.x)
       rect.right = p4.x - pos.x;
     if (pos.x < p1.x)
     {
       rect.left += p1.x - pos.x;
-      rect.top += (p1.x - pos.x) / 2;
+      rect.top += (p1.x - pos.x) / (DIMCELX / DIMCELY);
       pos.x = p1.x;
       pos.y = p1.y - 1;
     }
     m_pPixmap->DrawPart (-1, CHHILI, pos, rect); // ligne p1-p4
 
-    start.x += 64;
-    start.y += 64 / 2;
+    start.x += (DIMCELX + 4);
+    start.y += (DIMCELY + 2);
   }
 
-  start.x = p3.x - shift * 2;
+  start.x = p3.x - shift * (DIMCELX / DIMCELY);
   start.y = p3.y - shift - 1;
   while (start.x < p2.x)
   {
     pos         = start;
     rect.left   = 0;
-    rect.right  = 64;
+    rect.right  = (DIMCELX + 4);
     rect.top    = 0;
-    rect.bottom = 66 / 2;
+    rect.bottom = (DIMCELY + 3);
     if (pos.x + rect.right > p2.x)
       rect.right = p2.x - pos.x;
     if (pos.x < p3.x)
     {
       rect.left += p3.x - pos.x;
-      rect.top += (p3.x - pos.x) / 2;
+      rect.top += (p3.x - pos.x) / (DIMCELX / DIMCELY);
       pos.x = p3.x;
       pos.y = p3.y - 1;
     }
     m_pPixmap->DrawPart (-1, CHHILI, pos, rect); // ligne p3-p2
 
-    start.x += 64;
-    start.y += 64 / 2;
+    start.x += (DIMCELX + 4);
+    start.y += (DIMCELY + 2);
   }
 
-  start.x = p3.x - shift * 2;
-  start.y = p3.y + shift - 66 / 2;
+  start.x = p3.x - shift * (DIMCELX / DIMCELY);
+  start.y = p3.y + shift - (DIMCELY + 3);
   while (start.x < p1.x)
   {
     pos         = start;
     rect.left   = 0;
-    rect.right  = 64;
-    rect.top    = 66 / 2;
-    rect.bottom = 66;
+    rect.right  = (DIMCELX + 4);
+    rect.top    = (DIMCELY + 3);
+    rect.bottom = (DIMCELY * 2 + 6);
     if (pos.x + rect.right > p1.x)
       rect.right = p1.x - pos.x;
     if (pos.x < p3.x)
     {
       rect.left += p3.x - pos.x;
-      rect.bottom -= (p3.x - pos.x) / 2;
+      rect.bottom -= (p3.x - pos.x) / (DIMCELX / DIMCELY);
       pos.x = p3.x;
     }
     m_pPixmap->DrawPart (-1, CHHILI, pos, rect); // ligne p3-p1
 
-    start.x += 64;
-    start.y -= 64 / 2;
+    start.x += (DIMCELX + 4);
+    start.y -= (DIMCELY + 2);
   }
 
-  start.x = p2.x - shift * 2;
-  start.y = p2.y + shift - 66 / 2;
+  start.x = p2.x - shift * (DIMCELX / DIMCELY);
+  start.y = p2.y + shift - (DIMCELY + 3);
   while (start.x < p4.x)
   {
     pos         = start;
     rect.left   = 0;
-    rect.right  = 64;
-    rect.top    = 66 / 2;
-    rect.bottom = 66;
+    rect.right  = (DIMCELX + 4);
+    rect.top    = (DIMCELY + 3);
+    rect.bottom = (DIMCELY * 2 + 6);
     if (pos.x + rect.right > p4.x)
       rect.right = p4.x - pos.x;
     if (pos.x < p2.x)
     {
       rect.left += p2.x - pos.x;
-      rect.bottom -= (p2.x - pos.x) / 2;
+      rect.bottom -= (p2.x - pos.x) / (DIMCELX / DIMCELY);
       pos.x = p2.x;
     }
     m_pPixmap->DrawPart (-1, CHHILI, pos, rect); // ligne p2-p4
 
-    start.x += 64;
-    start.y -= 64 / 2;
+    start.x += (DIMCELX + 4);
+    start.y -= (DIMCELY + 2);
   }
 
   m_shiftHili += 3;
